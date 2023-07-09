@@ -21,14 +21,14 @@ const Navbar = () => {
           />
           <span className="pl-1 text-lg font-bold">GoalTracker</span>
         </Link>
-          <ul className="flex items-center justify-between w-8/12">
+          <ul className="flex items-center justify-between w-8/12 text-gray-600 cursor-pointer">
             <li>features</li>
             <li>Testimonials</li>
             <li>Reviews</li>
           </ul>
           </div>
         <ul className="flex items-center">
-          <li>Sign in</li>
+          <li className="text-gray-600 cursor-pointer">Sign in</li>
           <Button className="mx-5  bg-background text-white rounded-lg">Get started today</Button>
         </ul>
         </div>

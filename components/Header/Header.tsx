@@ -10,14 +10,14 @@ const Header = () => {
           Goal Tracking <span className="text-background">made simple </span>for
           you and your team
         </h1>
-        <p className="max-w-lg py-5">
+        <p className="max-w-[510px] py-5">
           {" "}
-          Most goal tracking software are excellent, but hard to use. We make
+          Most goal tracking softwares are excellent, but hard to use. We make
           the trade-offs better and hope you enjoy your stay here.
         </p>
         <div className="sm:flex">
           <Button className=" bg-black text-white w-44 rounded-full">Free Forever</Button>
-          <Button className="flex items-center bg-white text-background border w-44 rounded-full sm:mx-5 my-4 sm:my-0"><CiPlay1 className="mr-1 text-lg"/>Watch Demo</Button>
+          <Button className="flex items-center justify-center bg-white text-background border w-44 rounded-full sm:mx-5 my-4 sm:my-0"><CiPlay1 className="mr-1 text-lg"/>Watch Demo</Button>
         </div>
       </div>
     </header>

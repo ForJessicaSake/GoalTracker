@@ -6,7 +6,7 @@ import { PiTwitterLogoLight, PiGithubLogoLight } from "react-icons/pi";
 
 const Footer = () => {
   return (
-    <footer className="mx-auto container px-5 gap-y-10 lg:gap-y-0 w-full font-medium flex sm:flex-row flex-col justify-between">
+    <footer className="mx-auto container px-5 py-4 pt-8 lg:pt-16 gap-y-10 lg:gap-y-0 w-full font-medium flex sm:flex-row flex-col justify-between">
       <ul className="">
         <li>
           <Link href="/" className="flex items-center">
