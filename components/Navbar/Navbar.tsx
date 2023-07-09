@@ -45,15 +45,18 @@ const Navbar = () => {
           <span className="pl-1 text-lg font-bold">GoalTracker</span>
         </Link>
         <ul
-          className={`absolute top-20 bg-background items-center w-full left-0 py-10 text-white h-3/4 flex flex-col justify-between ${
+          className={`absolute top-20 bg-background items-center w-full left-0 py-10 text-white h-full ${
             nav ? "block" : "hidden"
           }`}
         >
+            <div className="flex flex-col h-3/4 items-center justify-between">
+
           <li>Features</li>
           <li>Testimonials</li>
           <li>Reviews</li>
           <li>Login in</li>
           <li>Sign up</li>
+            </div>
         </ul>
         <div className="lg:hidden block text-3xl" onClick={() => setNav(!nav)}>
           {!nav ? <CiMenuBurger /> : <TfiClose />}
