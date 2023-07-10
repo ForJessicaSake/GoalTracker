@@ -61,7 +61,7 @@ const Navbar = () => {
             nav ? "block" : "hidden"
           }`}
         >
-          <div className="flex flex-col h-3/4 items-center justify-between">
+          <div className="flex flex-col h-96 items-center justify-between">
             <li>
               <a href="/#features">features</a>
             </li>
@@ -71,12 +71,12 @@ const Navbar = () => {
             <li>
               <a href="/#contact">Contact Us</a>
             </li>
-            <li className="text-gray-600 cursor-pointer">
-              <Link href="/login">Login</Link>
-            </li>
-            <li className="text-gray-600 cursor-pointer">
+            <li className="cursor-pointer">
               <Link href="/signup">Sign up</Link>
             </li>{" "}
+            <li className=" cursor-pointer">
+              <Link href="/login">Login</Link>
+            </li>
           </div>
         </ul>
         <div className="lg:hidden block text-3xl" onClick={() => setNav(!nav)}>

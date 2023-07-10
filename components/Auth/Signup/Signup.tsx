@@ -1,9 +1,41 @@
-import React from "react";
+import React, { FormEvent } from "react";
 import Button from "../../Micro/Button/Button";
 import Image from "next/image";
 import Link from "next/link";
+import { signUp } from "../../Utils/Firebase/Firebase";
+import { toast } from "react-toastify";
+import { useRouter } from "next/router";
 
 const Signup = () => {
+  const router = useRouter();
+  //register user object
+  const [register, setRegister] = React.useState({
+    email: "",
+    password: "",
+  });
+
+  //register function
+  const handleRegister = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    try {
+      await signUp(register.email, register.password);
+      toast.success("Welcome to progressPal!");
+      setTimeout(() => {
+        router.push("/login");
+      }, 3000);
+    } catch (error: any) {
+      if (error.code === "auth/weak-password") {
+        toast.error("Weak password!");
+      } else if (error.code === "auth/invalid-email") {
+        toast.error("Invalid email address");
+      } else if (error.code === "auth/email-already-in-use") {
+        toast.error("Email already in use, kindly log in");
+      } else {
+        toast.error("Network error, kindly check your internet connection");
+      }
+    }
+  };
+
   return (
     <main className="sm:grid sm:grid-cols-2 overflow-y-hidden flex flex-col-reverse h-full 2xl:container 2xl:mx-auto">
       <div className="lg:p-8 p-5">
@@ -19,17 +51,28 @@ const Signup = () => {
         <form
           className=" flex flex-col h-full justify-center"
           data-aos="zoom-in"
+          onSubmit={handleRegister}
         >
           <label className="text-2xl py-5 font-semibold">Sign Up</label>
           <input
             className="border lg:max-w-sm  p-4 rounded-lg"
             placeholder="Enter your email address"
+            required
             type="email"
+            value={register.email}
+            onChange={(e) =>
+              setRegister({ ...register, email: e.target.value })
+            }
           />
           <input
             className="border lg:max-w-sm p-4 my-6 rounded-lg"
             placeholder="password"
+            required
             type="Password"
+            value={register.password}
+            onChange={(e) =>
+              setRegister({ ...register, password: e.target.value })
+            }
           />
           <div className="flex lg:flex-row flex-col justify-between  items-center lg:max-w-sm">
             <Button className="bg-card text-white w-40 rounded-lg">
@@ -37,10 +80,11 @@ const Signup = () => {
             </Button>
             <div className="lg:py-0 pt-3">Already have an account?</div>
           </div>
-          <Link href="/login">
-            <Button className="w-full  lg:max-w-sm bg-black my-10 rounded-lg py-4 text-white">
-              LOGIN
-            </Button>
+          <Link
+            href="/login"
+            className="w-full flex items-center justify-center  lg:max-w-sm bg-black my-10 rounded-lg py-4 text-white"
+          >
+            LOGIN
           </Link>
         </form>
       </div>
