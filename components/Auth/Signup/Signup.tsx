@@ -14,7 +14,7 @@ const Signup = () => {
             width={34}
             height={34}
           />
-          <span className="pl-1 text-lg font-bold">progressPal</span>
+          <span className="pl-1 text-xl font-bold">progressPal</span>
         </Link>
         <form className=" flex flex-col h-full justify-center">
           <label className="text-2xl py-5 font-semibold">Sign Up</label>
@@ -32,9 +32,9 @@ const Signup = () => {
             <Button className="bg-card text-white w-40 rounded-lg">
               SIGN UP
             </Button>
-            <Link href="/" className="lg:py-0 pt-3">
+            <div className="lg:py-0 pt-3">
               Already have an account?
-            </Link>
+            </div>
           </div>
           <Link href="/login">
             <Button className="w-full  lg:max-w-sm bg-black my-10 rounded-lg py-4 text-white">
