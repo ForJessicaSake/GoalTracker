@@ -5,17 +5,17 @@ const Reviews = [
   {
     name: "Therasa George",
     role: "Teacher",
-    deets:"ProgressPal is so easy to use I can't help but wonder if it's really going to track my goals, we'd see I guess.",
+    deets:`ProgressPal is so easy to use I can't help but wonder if it's really going to track my goals, we'd see I guess.`,
   },
   {
     name: "Steven Ray",
     role: "software Engineer",
-    deets:"ProgressPal offers a ton of features and it's really woth the buz. Tracking goals and making notes makes a huge difference in getting organized.",
+    deets:`ProgressPal offers a ton of features and it's really woth the buz. Tracking goals and making notes makes a huge difference in getting organized.`,
   },
   {
     name: "Steve Grey",
     role: "Engineer",
-    deets:"I love ProgressPal, the UI is top much and the features it offers are so amazing especially cause it's free forever!",
+    deets:`I love ProgressPal, the UI is top much and the features it offers are so amazing especially cause it's free forever!`,
   },
   {
     name: "John Doe",
@@ -25,12 +25,12 @@ const Reviews = [
   {
     name: "Rachael Moses",
     role: "Doctor",
-    deets:"There are so many things I had to do with other note applications that I just don't do with progressPal. Suspicious but I can't say I don't love it!",
+    deets:`There are so many things I had to do with other note applications that I just don't do with progressPal. Suspicious but I can't say I don't love it!`,
   },
   {
     name: "Peter Kye",
     role: "Receptionist",
-    deets:"I am usually very disorgonized but since I started using progressPal, I've been nailing all my tasks on time!",
+    deets:`I am usually very disorgonized but since I started using progressPal, I've been nailing all my tasks on time!`,
   },
 ];
 
