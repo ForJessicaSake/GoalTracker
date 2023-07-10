@@ -5,15 +5,15 @@ import {BsCheck2All} from "react-icons/bs"
 const featureArray = [
   {
     name: "Goals",
-    deets:`All your goals organized in one place as long as your don't mind typing it by hand, we got you!`,
+    deets:`All your goals organized in one place as long as your don't mind typing it by hand, we got you`,
   },
   {
     name: "Journal",
-    deets:`Keep track of everything you'd like to make notes of in one place by using progressPal`,
+    deets:`Keep track of everything you would like to make notes of in one place by using progressPal`,
   },
   {
     name: "Reporting",
-    deets:`Easily report the progress of your goals and do whatever you want with it!`,
+    deets:`Easily report the progress of your goals and do whatever you want with it`,
   },
   {
     name: "Security",
