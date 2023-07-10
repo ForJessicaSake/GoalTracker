@@ -6,7 +6,7 @@ import { PiTwitterLogoLight, PiGithubLogoLight } from "react-icons/pi";
 
 const Footer = () => {
   return (
-    <footer className="mx-auto container px-5 py-4 pt-8 lg:pt-16 gap-y-10 lg:gap-y-0 w-full font-medium flex sm:flex-row flex-col justify-between">
+    <footer className="mx-auto container px-5 py-4 pt-10 lg:pt-16 gap-y-10 lg:gap-y-0 w-full font-medium flex sm:flex-row flex-col justify-between">
       <ul className="">
         <li>
           <Link href="/" className="flex items-center">
@@ -16,14 +16,14 @@ const Footer = () => {
               width={34}
               height={34}
             />
-            <span className="pl-1 text-lg font-bold">GoalTracker</span>
+            <span className="pl-1 text-lg font-bold">progressPal</span>
           </Link>
         </li>
         <li className="py-4 flex items-center">
           <span className="pr-2">
             <CiMail />
           </span>
-          goaltracker@gmail.com
+          progressPal@gmail.com
         </li>
         <li className="flex items-center text-xl text-black">
           <PiGithubLogoLight />
