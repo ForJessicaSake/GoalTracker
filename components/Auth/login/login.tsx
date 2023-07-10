@@ -16,7 +16,10 @@ const Login = () => {
           />
           <span className="pl-1 text-xl font-bold">progressPal</span>
         </Link>{" "}
-        <form className=" flex flex-col h-full justify-center">
+        <form
+          className=" flex flex-col h-full justify-center"
+          data-aos="zoom-in"
+        >
           <label className="text-2xl py-5 font-semibold">Sign In</label>
           <input
             className="border lg:max-w-sm  p-4 rounded-lg"

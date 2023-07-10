@@ -16,7 +16,10 @@ const Forgotpassword = () => {
           />
           <span className="pl-1 text-lg font-bold">progressPal</span>
         </Link>{" "}
-        <form className=" flex flex-col h-full justify-center">
+        <form
+          className=" flex flex-col h-full justify-center"
+          data-aos="zoom-in"
+        >
           <label className="text-2xl py-5 font-semibold">
             Forgot Password?
           </label>

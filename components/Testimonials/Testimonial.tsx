@@ -46,7 +46,8 @@ const Testimonial = () => {
       </div>
       <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-10 place-items-center pt-5 lg:pt-10">
         {Reviews.map((reviews, index) => (
-          <div key={index} className="shadow-md p-5 rounded-lg">
+          <div key={index} className="shadow-md p-5 rounded-lg"       data-aos="fade-up"
+          >
             <p className="py-5">{reviews.deets}</p>
             <hr />
             <div className="flex justify-between items-center py-2">
