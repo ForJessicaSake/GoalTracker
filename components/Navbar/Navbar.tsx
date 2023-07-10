@@ -34,10 +34,14 @@ const Navbar = () => {
           </ul>
         </div>
         <ul className="flex items-center">
-          <li className="text-gray-600 cursor-pointer">Sign in</li>
-          <Button className="mx-5  bg-background text-white rounded-lg">
-            Get started today
-          </Button>
+          <li className="text-gray-600 cursor-pointer">
+            <Link href="/login">Sign in</Link>
+          </li>
+          <Link href="/signup">
+            <Button className="mx-5  bg-background text-white rounded-lg">
+              Get started today
+            </Button>
+          </Link>
         </ul>
       </div>
 
@@ -67,8 +71,12 @@ const Navbar = () => {
             <li>
               <a href="/#contact">Contact Us</a>
             </li>
-            <li>Login in</li>
-            <li>Sign up</li>
+            <li className="text-gray-600 cursor-pointer">
+              <Link href="/login">Login</Link>
+            </li>
+            <li className="text-gray-600 cursor-pointer">
+              <Link href="/signup">Sign up</Link>
+            </li>{" "}
           </div>
         </ul>
         <div className="lg:hidden block text-3xl" onClick={() => setNav(!nav)}>

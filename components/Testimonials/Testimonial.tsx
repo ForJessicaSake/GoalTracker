@@ -38,7 +38,7 @@ const Testimonial = () => {
   return (
     <main className="mx-auto container px-5 py-20" id="testimonials">
       <div className="flex flex-col items-center text-center justify-center">
-        <h1 className="sm:text-4xl text-3xl">Loved by People Worldwide.</h1>
+        <h1 className="sm:text-4xl font-semibold text-3xl">Loved by People Worldwide.</h1>
         <p className="max-w-2xl py-3">
           Our software is so simple that people can't help but fall in love with
           it. Simplicity is easy when you know exaxtly what your end users want.
