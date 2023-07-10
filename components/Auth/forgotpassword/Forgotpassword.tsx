@@ -1,9 +1,9 @@
-import React from "react";
-import Button from "../../Micro/Button/Button";
 import Image from "next/image";
 import Link from "next/link";
+import React from "react";
+import Button from "../../Micro/Button/Button";
 
-const Login = () => {
+const Forgotpassword = () => {
   return (
     <main className="sm:grid sm:grid-cols-2 flex flex-col-reverse overflow-y-hidden h-full 2xl:container 2xl:mx-auto">
       <div className="lg:p-8 p-5">
@@ -17,7 +17,9 @@ const Login = () => {
           <span className="pl-1 text-lg font-bold">progressPal</span>
         </Link>{" "}
         <form className=" flex flex-col h-full justify-center">
-          <label className="text-2xl py-5 font-semibold">Sign In</label>
+          <label className="text-2xl py-5 font-semibold">
+            Forgot Password?
+          </label>
           <input
             className="border lg:max-w-sm  p-4 rounded-lg"
             placeholder="Enter your email address"
@@ -25,20 +27,23 @@ const Login = () => {
           />
           <input
             className="border lg:max-w-sm p-4 my-6 rounded-lg"
-            placeholder="password"
+            placeholder="Enter your new password"
             type="Password"
           />
-          <div className="flex lg:flex-row flex-col justify-between  items-center lg:max-w-sm">
+          <input
+            className="border lg:max-w-sm p-4 rounded-lg"
+            placeholder="confirm your password"
+            type="Password"
+          />
+
+          <div className="flex mt-6 lg:flex-row items-center lg:max-w-md">
             <Button className="bg-card text-white w-40 rounded-lg">
-              LOGIN
+              SUBMIT
             </Button>
-            <Link href="/forgotpassword" className="lg:py-0 pt-3">
-              Forgot your password?
-            </Link>
           </div>
           <Link href="/signup">
             <Button className="w-full  lg:max-w-sm bg-black my-10 rounded-lg py-4 text-white">
-              CREATE NEW ACCOUNT
+              LOGIN
             </Button>
           </Link>
         </form>
@@ -50,4 +55,4 @@ const Login = () => {
   );
 };
 
-export default Login;
+export default Forgotpassword;
