@@ -6,7 +6,10 @@ import { PiTwitterLogoLight, PiGithubLogoLight } from "react-icons/pi";
 
 const Footer = () => {
   return (
-    <footer id="contact" className="mx-auto container px-5 py-4 pt-10 lg:pt-16 gap-y-10 lg:gap-y-0 w-full font-medium flex sm:flex-row flex-col justify-between">
+    <footer
+      id="contact"
+      className="mx-auto container px-5 py-4 pt-10 lg:pt-16 gap-y-10 lg:gap-y-0 w-full font-medium flex sm:flex-row flex-col justify-between"
+    >
       <ul className="">
         <li>
           <Link href="/" className="flex items-center">
@@ -32,18 +35,18 @@ const Footer = () => {
         </li>{" "}
       </ul>
 
-      <ul>
+      <ul className="cursor-pointer">
         <li>Home</li>
         <li className="py-4">About Us</li>
         <li>Features</li>
       </ul>
 
-      <ul>
+      <ul className="cursor-pointer">
         <li>Testimonials</li>
         <li className="py-4">Pricing</li>
         <li>Reviews</li>
       </ul>
-      <ul>
+      <ul className="cursor-pointer">
         <li>Terms of use</li>
         <li className="py-4">Privacy policy</li>
         <li>Cookies policy</li>
