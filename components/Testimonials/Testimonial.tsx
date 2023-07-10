@@ -15,7 +15,7 @@ const Reviews = [
   {
     name: "Steve Grey",
     role: "Engineer",
-    deets:`I love ProgressPal, the UI is top much and the features it offers are so amazing especially cause it is free forever`,
+    deets:`I love ProgressPal, the UI is top notch and the features it offers are so amazing especially cause it is free forever`,
   },
   {
     name: "John Doe",
