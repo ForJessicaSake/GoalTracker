@@ -23,7 +23,7 @@ const featureArray = [
 
 const Features = () => {
   return (
-    <main className="bg-background px-5 py-4 mx-auto container">
+    <main className="bg-background px-5 py-4 mx-auto container" id="features">
       <div className="text-gray-100 lg:py-16 py-6 flex flex-col items-center justify-end text-center">
         <h1 className="sm:text-4xl text-2xl font-semibold max-w-md lg:max-w-full">
           Everything you need to track your progress.

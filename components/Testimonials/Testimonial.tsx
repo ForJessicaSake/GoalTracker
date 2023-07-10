@@ -36,7 +36,7 @@ const Reviews = [
 
 const Testimonial = () => {
   return (
-    <main className="mx-auto container px-5 py-20 ">
+    <main className="mx-auto container px-5 py-20" id="testimonials">
       <div className="flex flex-col items-center text-center justify-center">
         <h1 className="sm:text-4xl text-3xl">Loved by People Worldwide.</h1>
         <p className="max-w-2xl py-3">
@@ -44,7 +44,7 @@ const Testimonial = () => {
           it. Simplicity is easy when you know exaxtly what your end users want.
         </p>
       </div>
-      <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-10 place-items-center pt-10">
+      <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-10 place-items-center pt-5 lg:pt-10">
         {Reviews.map((reviews, index) => (
           <div key={index} className="shadow-md p-5 rounded-lg">
             <p className="py-5">{reviews.deets}</p>

@@ -11,27 +11,35 @@ const Navbar = () => {
     <nav className="mx-auto container p-5">
       {/*desktop*/}
       <div className="justify-between items-center hidden lg:flex">
-      <div className="flex items-center w-6/12 justify-between">
-        <Link href="/" className="flex items-center">
-          <Image
-            src="/assets/Navbar/logo.png"
-            alt="logo"
-            width={34}
-            height={34}
-          />
-          <span className="pl-1 text-lg font-bold">progressPal</span>
-        </Link>
+        <div className="flex items-center w-6/12 justify-between">
+          <Link href="/" className="flex items-center">
+            <Image
+              src="/assets/Navbar/logo.png"
+              alt="logo"
+              width={34}
+              height={34}
+            />
+            <span className="pl-1 text-lg font-bold">progressPal</span>
+          </Link>
           <ul className="flex items-center justify-between w-8/12 text-gray-600 cursor-pointer">
-            <li>features</li>
-            <li>Testimonials</li>
-            <li>Reviews</li>
+            <li>
+              <a href="/#features">features</a>
+            </li>
+            <li>
+              <a href="/#testimonials">Testimonials</a>
+            </li>
+            <li>
+              <a href="/#contact">Contact Us</a>
+            </li>
           </ul>
-          </div>
+        </div>
         <ul className="flex items-center">
           <li className="text-gray-600 cursor-pointer">Sign in</li>
-          <Button className="mx-5  bg-background text-white rounded-lg">Get started today</Button>
+          <Button className="mx-5  bg-background text-white rounded-lg">
+            Get started today
+          </Button>
         </ul>
-        </div>
+      </div>
 
       {/* mobile */}
       <div className="lg:hidden flex justify-between items-center">
@@ -49,14 +57,19 @@ const Navbar = () => {
             nav ? "block" : "hidden"
           }`}
         >
-            <div className="flex flex-col h-3/4 items-center justify-between">
-
-          <li>Features</li>
-          <li>Testimonials</li>
-          <li>Reviews</li>
-          <li>Login in</li>
-          <li>Sign up</li>
-            </div>
+          <div className="flex flex-col h-3/4 items-center justify-between">
+            <li>
+              <a href="/#features">features</a>
+            </li>
+            <li>
+              <a href="/#testimonials">Testimonials</a>
+            </li>
+            <li>
+              <a href="/#contact">Contact Us</a>
+            </li>
+            <li>Login in</li>
+            <li>Sign up</li>
+          </div>
         </ul>
         <div className="lg:hidden block text-3xl" onClick={() => setNav(!nav)}>
           {!nav ? <CiMenuBurger /> : <TfiClose />}
