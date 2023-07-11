@@ -6,6 +6,7 @@ import { useRouter } from "next/router";
 import { logIn } from "../../Utils/Firebase/Firebase";
 import { toast } from "react-toastify";
 import { UseAuth } from "../../Utils/Firebase/Firebase";
+import { googleAuth } from "../../Utils/Firebase/Firebase";
 
 const Login = () => {
   const currentUser = UseAuth();
@@ -93,6 +94,24 @@ const Login = () => {
           >
             CREATE NEW ACCOUNT
           </Link>
+          <p className="flex items-center justify-center max-w-sm">OR</p>
+          <div
+            onClick={() => {
+              googleAuth()
+                .then(() => {
+                  setTimeout(() => {
+                    toast.success("Welcome to ProgressPal");
+                    router.push("/");
+                  }, 3000);
+                })
+                .catch(() => {
+                  toast("Google sign-in error");
+                });
+            }}
+            className="w-full cursor-pointer flex justify-center lg:max-w-sm bg-white my-3 border-black border-2 rounded-lg py-4 text-black"
+          >
+            SIGN IN WITH GOOGLE
+          </div>
         </form>
       </div>
       <section className="bg-card h-screen flex items-center px-5">

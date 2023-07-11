@@ -88,7 +88,6 @@ const Signup = () => {
             LOGIN
           </Link>
           <p className="flex items-center justify-center max-w-sm">OR</p>
-
           <div
             onClick={() => {
               googleAuth()
@@ -96,7 +95,7 @@ const Signup = () => {
                   setTimeout(() => {
                     toast.success("Welcome to ProgressPal");
                     router.push("/");
-                  }, 2900);
+                  }, 3000);
                 })
                 .catch(()=> {
                   toast("Google sign-in error");

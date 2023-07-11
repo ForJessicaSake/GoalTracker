@@ -9,7 +9,7 @@ import {
     signOut,
     signInWithEmailAndPassword,
 } from "firebase/auth";
-import { signInWithPopup, GoogleAuthProvider } from "firebase/auth";
+import { signInWithPopup, GoogleAuthProvider, signInWithRedirect } from "firebase/auth";
 
 
 // Your web app's Firebase configuration
@@ -44,6 +44,8 @@ export function Logout() {
 export function googleAuth() {
     const provider = new GoogleAuthProvider();
     return signInWithPopup(auth, provider);
+    // return signInWithRedirect(auth, provider);
+
   }
 
 //custom hook for signUp
