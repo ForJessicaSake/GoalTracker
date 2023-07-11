@@ -21,7 +21,7 @@ const Navbar = () => {
             />
             <span className="pl-1 text-lg font-bold">progressPal</span>
           </Link>
-          <ul className="flex items-center justify-between w-8/12 text-gray-600 cursor-pointer">
+          <ul className="flex items-center justify-between w-9/12 pl-4 text-gray-600 cursor-pointer">
             <li>
               <a href="/#features">features</a>
             </li>

@@ -66,8 +66,9 @@ const PriceComponent = () => {
           <h1 className="text-5xl">${deets.price}</h1>
           <p className="py-1 font-semibold text-lg">{deets.plan}</p>
           <p className="py-1 text-sm">{deets.description}</p>
-          <div className="text-start text-sm leading-10">
+          <div className="text-start sm:text-sm text-xs py-1">
             <h3 className="underline font-semibold">Features</h3>
+            <div className="leading-10">
             <p className="flex items-center">
               <BsCheck2All className="mr-2 text-green-400" />
               All your goals organized in one place
@@ -88,6 +89,7 @@ const PriceComponent = () => {
               <BsCheck2All className="mr-2 text-green-400" />
               Document your goal progress
             </p>
+            </div>
           </div>
         </div>
       ))}
