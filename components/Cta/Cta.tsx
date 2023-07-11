@@ -4,7 +4,7 @@ import Button from "../Micro/Button/Button";
 const Cta = () => {
   return (
     <main className="px-5 mx-auto container text-black pb-20"
-    data-aos="zoom-in"
+    data-aos="zoom-in-right"
 
     >
       <div className="flex flex-col items-center text-center justify-center ">

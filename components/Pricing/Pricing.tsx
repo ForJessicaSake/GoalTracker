@@ -29,11 +29,16 @@ const pricingObject = [
 
 const Pricing = () => {
   return (
-    <main id="pricing" className="mx-auto container text-white bg-black py-14 flex flex-col items-center justify-center">
+    <main
+      data-aos="zoom-in"
+      id="pricing"
+      className="mx-auto container text-white bg-black py-14 flex flex-col items-center justify-center"
+    >
       <div className="px-5">
         <div className="text-center">
           <h1 className="text-3xl font-semibold">
-            Simple <span className="text-background">Pricing </span> For Everyone
+            Simple <span className="text-background">Pricing </span> For
+            Everyone
           </h1>
           <p className="py-2">
             It doesn't matter the size of your goals, our software would work
@@ -52,7 +57,8 @@ export default Pricing;
 
 const PriceComponent = () => {
   return (
-    <div className="grid lg:grid-cols-2 xl:grid-cols-3 gap-8">
+    <div className="grid lg:grid-cols-2 xl:grid-cols-3 gap-8"
+    >
       {pricingObject.map((deets) => (
         <div
           className={`bg-${deets.color} text-${deets.text} p-6 rounded-2xl xl:w-96`}
