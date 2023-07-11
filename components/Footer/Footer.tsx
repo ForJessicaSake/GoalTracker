@@ -8,7 +8,7 @@ const Footer = () => {
   return (
     <footer
       id="contact"
-      className="mx-auto container px-5 py-4 pt-10 lg:pt-16 gap-y-10 lg:gap-y-0 w-full font-medium flex sm:flex-row flex-col justify-between"
+      className="mx-auto container px-5 py-4 pt-10 lg:pt-16 space-y-10 lg:space-y-0 w-full font-medium flex sm:flex-row flex-col justify-between"
     >
       <ul className="">
         <li>

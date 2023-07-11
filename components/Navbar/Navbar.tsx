@@ -77,10 +77,10 @@ const Navbar = () => {
             <li>
               <a href="/#contact">Contact Us</a>
             </li>
-            <li className="cursor-pointer">
+            <li className="cursor-pointer bg-white text-background p-3 w-28 flex items-center justify-center rounded-full">
               <Link href="/signup">Sign up</Link>
-            </li>{" "}
-            <li className=" cursor-pointer">
+            </li>
+            <li className="cursor-pointer bg-black  p-3 w-28 flex items-center justify-center rounded-full">
               <Link href="/login">Login</Link>
             </li>
           </div>
