@@ -6,14 +6,14 @@ import Cta from "../Cta/Cta";
 const pricingObject = [
   {
     plan: "Free",
-    price: "5",
+    price: "0",
     description: "Perfect for you and your goals",
     color: "white",
     text: "black",
   },
   {
     plan: "Basic",
-    price: "5",
+    price: "3",
     description: "Perfect for you and your team goals",
     color: "background",
     text: "white",
@@ -29,7 +29,7 @@ const pricingObject = [
 
 const Pricing = () => {
   return (
-    <main className="mx-auto container text-white bg-black py-20 flex flex-col items-center justify-center">
+    <main id="pricing" className="mx-auto container text-white bg-black py-14 flex flex-col items-center justify-center">
       <div className="px-5">
         <div className="text-center">
           <h1 className="text-3xl font-semibold">

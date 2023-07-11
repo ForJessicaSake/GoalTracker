@@ -9,7 +9,7 @@ import Pricing from "../components/Pricing/Pricing";
 const Home = () => {
   return (
     <div>
-      <main>
+      <main className="overflow-x-hidden">
         <Navbar />
         <Header/>
         <Features/>
