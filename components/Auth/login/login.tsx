@@ -60,7 +60,7 @@ const Login = () => {
   }, []);
 
   return (
-    <main className="sm:grid sm:grid-cols-2 flex flex-col-reverse overflow-y-hidden h-full 2xl:container 2xl:mx-auto">
+    <main className="sm:grid sm:grid-cols-2 overflow-y-hidden h-full 2xl:container 2xl:mx-auto">
       <div className="lg:p-8 p-5">
         <Link href="/" className="flex items-center">
           <Image
@@ -69,14 +69,14 @@ const Login = () => {
             width={34}
             height={34}
           />
-          <span className="pl-1 text-xl font-bold">progressPal</span>
+          <span className="pl-1 text-xl font-bold">GoalTracker</span>
         </Link>{" "}
         <form
           className=" flex flex-col h-full justify-center"
           data-aos="zoom-in"
           onSubmit={handleLogin}
         >
-          <label className="text-2xl py-5 font-semibold">Sign In</label>
+          <label className="text-2xl sm:py-5 py-10 font-semibold">Sign In</label>
           <input
             className="border lg:max-w-sm  p-4 rounded-lg"
             placeholder="Enter your email address"
@@ -125,7 +125,7 @@ const Login = () => {
           </div>
         </form>
       </div>
-      <section className="bg-card h-screen flex items-center px-5">
+      <section className="bg-card h-screen hidden sm:flex items-center px-5">
         <Image src="/assets/sign.png" alt="sign in" width={600} height={400} />
       </section>
     </main>

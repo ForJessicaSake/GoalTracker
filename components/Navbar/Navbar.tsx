@@ -60,6 +60,7 @@ const Navbar = () => {
           <span className="pl-1 text-lg font-bold">GoalTracker</span>
         </Link>
         <ul
+          onClick={() => setNav(!nav)}
           className={`absolute top-20 bg-background items-center w-full left-0 py-10 text-white h-full ${
             nav ? "block" : "hidden"
           }`}

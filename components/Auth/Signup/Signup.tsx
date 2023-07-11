@@ -56,7 +56,7 @@ const Signup = () => {
     });
   };
   return (
-    <main className="sm:grid sm:grid-cols-2 overflow-y-hidden flex flex-col-reverse h-full 2xl:container 2xl:mx-auto">
+    <main className="sm:grid sm:grid-cols-2 overflow-y-hidden h-full 2xl:container 2xl:mx-auto">
       <div className="lg:p-8 p-5">
         <Link href="/" className="flex items-center">
           <Image
@@ -65,14 +65,14 @@ const Signup = () => {
             width={34}
             height={34}
           />
-          <span className="pl-1 text-xl font-bold">progressPal</span>
+          <span className="pl-1 text-xl font-bold">GoalTracker</span>
         </Link>
         <form
           className=" flex flex-col h-full justify-center"
           data-aos="zoom-in"
           onSubmit={handleRegister}
         >
-          <label className="text-2xl py-5 font-semibold">Sign Up</label>
+          <label className="text-2xl sm:py-5 py-10 font-semibold">Sign Up</label>
           <input
             className="border lg:max-w-sm  p-4 rounded-lg"
             placeholder="Enter your email address"
@@ -123,7 +123,7 @@ const Signup = () => {
           </div>
         </form>
       </div>
-      <section className="bg-card h-screen p-8 flex items-center">
+      <section className="bg-card h-screen hidden sm:flex p-8 flex items-center">
         <Image src="/assets/sign.png" alt="sign in" width={600} height={400} />
       </section>
     </main>
