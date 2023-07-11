@@ -26,7 +26,7 @@ function MyApp({ Component, pageProps }: AppProps) {
         pauseOnFocusLoss
         draggable
         pauseOnHover
-        theme="light"
+        theme="dark"
       />
     </div>
   );

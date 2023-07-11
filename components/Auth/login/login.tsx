@@ -21,7 +21,7 @@ const Login = () => {
     e.preventDefault();
     try {
       await logIn(user.email, user.password);
-      toast.success(`Don't be scared to set those goals`);
+      toast.success(`Set goals and make it happen!`);
       localStorage.setItem("user", JSON.stringify(user));
       setTimeout(() => {
         router.push("/");
@@ -44,7 +44,6 @@ const Login = () => {
       setUser(userObj);
     }
   }, []);
-
 
   return (
     <main className="sm:grid sm:grid-cols-2 flex flex-col-reverse overflow-y-hidden h-full 2xl:container 2xl:mx-auto">
@@ -81,7 +80,7 @@ const Login = () => {
             onChange={(e) => setUser({ ...user, password: e.target.value })}
           />
           <div className="flex lg:flex-row flex-col justify-between  items-center lg:max-w-sm">
-            <Button className="bg-card text-white w-40 rounded-lg">
+            <Button className="bg-card hover:bg-background text-white w-40 rounded-lg">
               LOGIN
             </Button>
             <Link href="/forgotpassword" className="lg:py-0 pt-3">
@@ -90,7 +89,7 @@ const Login = () => {
           </div>
           <Link
             href="/signup"
-            className="w-full flex justify-center lg:max-w-sm bg-black my-10 rounded-lg py-4 text-white"
+            className="w-full flex justify-center lg:max-w-sm hover:bg-card bg-black my-5 rounded-lg py-4 text-white"
           >
             CREATE NEW ACCOUNT
           </Link>

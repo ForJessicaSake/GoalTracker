@@ -11,8 +11,7 @@ const Cta = () => {
         <h1 className="text-3xl font-semibold">Get started today</h1>
         <p className="max-w-lg py-5 text-sm">
           It is time to take charge of your goals. Sign up with progressPal
-          today and let us help you make the most of what you do while also
-          getting things done quickly.
+          today and let us help you make the most of what you do!
         </p>
         <div className="flex sm:flex-row flex-col"
             data-aos="fade-left"

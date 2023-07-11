@@ -9,6 +9,8 @@ import {
     signOut,
     signInWithEmailAndPassword,
 } from "firebase/auth";
+import { signInWithPopup, GoogleAuthProvider } from "firebase/auth";
+
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
@@ -38,6 +40,11 @@ export function logIn(email:string, password:string) {
 export function Logout() {
     return signOut(auth);
 }
+
+export function googleAuth() {
+    const provider = new GoogleAuthProvider();
+    return signInWithPopup(auth, provider);
+  }
 
 //custom hook for signUp
 export function UseAuth() {

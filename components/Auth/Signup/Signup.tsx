@@ -4,6 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { signUp } from "../../Utils/Firebase/Firebase";
 import { toast } from "react-toastify";
+import { googleAuth } from "../../Utils/Firebase/Firebase";
 import { useRouter } from "next/router";
 
 const Signup = () => {
@@ -75,17 +76,36 @@ const Signup = () => {
             }
           />
           <div className="flex lg:flex-row flex-col justify-between  items-center lg:max-w-sm">
-            <Button className="bg-card text-white w-40 rounded-lg">
+            <Button className="bg-card hover:bg-background text-white w-40 rounded-lg">
               SIGN UP
             </Button>
             <div className="lg:py-0 pt-3">Already have an account?</div>
           </div>
           <Link
             href="/login"
-            className="w-full flex items-center justify-center  lg:max-w-sm bg-black my-10 rounded-lg py-4 text-white"
+            className="w-full flex items-center justify-center  lg:max-w-sm bg-black my-5 rounded-lg py-4 text-white"
           >
             LOGIN
           </Link>
+          <p className="flex items-center justify-center max-w-sm">OR</p>
+
+          <div
+            onClick={() => {
+              googleAuth()
+                .then(() => {
+                  setTimeout(() => {
+                    toast.success("Welcome to ProgressPal");
+                    router.push("/");
+                  }, 2900);
+                })
+                .catch(()=> {
+                  toast("Google sign-in error");
+                });
+            }}
+            className="w-full cursor-pointer flex justify-center lg:max-w-sm bg-white my-3 border-black border-2 rounded-lg py-4 text-black"
+          >
+            SIGN UP WITH GOOGLE
+          </div>
         </form>
       </div>
       <section className="bg-card h-screen p-8 flex items-center">
