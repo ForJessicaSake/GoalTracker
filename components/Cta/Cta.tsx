@@ -3,7 +3,7 @@ import Button from "../Micro/Button/Button";
 
 const Cta = () => {
   return (
-    <main className="px-5 mx-auto container bg-background text-gray-100 py-20"
+    <main className="px-5 mx-auto container text-black pb-20"
     data-aos="zoom-in"
 
     >
@@ -16,7 +16,7 @@ const Cta = () => {
         <div className="flex sm:flex-row flex-col"
             data-aos="fade-left"
             >
-          <Button className="bg-white text-black rounded-full p-2 w-48 h-14">
+          <Button className="bg-background text-white rounded-full p-2 w-48 h-14">
             Basic Plan
           </Button>
           <Button className="bg-black text-white rounded-full p-2 w-48 h-14 sm:ml-5 mt-5 sm:mt-0">
