@@ -7,9 +7,11 @@ import { logIn } from "../../Utils/Firebase/Firebase";
 import { toast } from "react-toastify";
 import { UseAuth } from "../../Utils/Firebase/Firebase";
 import { googleAuth } from "../../Utils/Firebase/Firebase";
+import { AiOutlineLoading3Quarters } from "react-icons/ai";
 
 const Login = () => {
   const currentUser = UseAuth();
+  const [loading, setLoading] = React.useState(false);
   const router = useRouter();
   //signin user object
   const [user, setUser] = React.useState({
@@ -25,7 +27,7 @@ const Login = () => {
       toast.success(`Set goals and make it happen!`);
       localStorage.setItem("user", JSON.stringify(user));
       setTimeout(() => {
-        router.push("/");
+        router.push("/dashboard");
       }, 3000);
     } catch (error: any) {
       console.log(error.code);
@@ -37,6 +39,17 @@ const Login = () => {
         toast.error("Network error, kindly check your internet connection");
       }
     }
+  };
+
+  const handleGoogleAuth = () => {
+    setLoading(true);
+    googleAuth().then(() => {
+      setTimeout(() => {
+        toast.success("Welcome to ProgressPal");
+        router.push("/dashboard");
+      }, 3000);
+      setLoading(true);
+    });
   };
 
   React.useEffect(() => {
@@ -90,27 +103,25 @@ const Login = () => {
           </div>
           <Link
             href="/signup"
-            className="w-full flex justify-center lg:max-w-sm hover:bg-card bg-black my-5 rounded-lg py-4 text-white"
+            className="w-full flex justify-center lg:max-w-sm bg-black my-5 rounded-lg py-4 text-white"
           >
             CREATE NEW ACCOUNT
           </Link>
           <p className="flex items-center justify-center max-w-sm">OR</p>
           <div
-            onClick={() => {
-              googleAuth()
-                .then(() => {
-                  setTimeout(() => {
-                    toast.success("Welcome to ProgressPal");
-                    router.push("/");
-                  }, 3000);
-                })
-                .catch(() => {
-                  toast("Google sign-in error");
-                });
-            }}
+            onClick={handleGoogleAuth}
             className="w-full cursor-pointer flex justify-center lg:max-w-sm bg-white my-3 border-black border-2 rounded-lg py-4 text-black"
           >
-            SIGN IN WITH GOOGLE
+            {!loading ? (
+              "SIGN IN WITH GOOGLE"
+            ) : (
+              <p className="flex items-center">
+                Please Wait
+                <span className="pl-2">
+                  <AiOutlineLoading3Quarters className="animate-spin" />
+                </span>
+              </p>
+            )}
           </div>
         </form>
       </div>

@@ -6,6 +6,7 @@ import { signUp } from "../../Utils/Firebase/Firebase";
 import { toast } from "react-toastify";
 import { googleAuth } from "../../Utils/Firebase/Firebase";
 import { useRouter } from "next/router";
+import { AiOutlineLoading3Quarters } from "react-icons/ai";
 
 const Signup = () => {
   const router = useRouter();
@@ -15,28 +16,45 @@ const Signup = () => {
     password: "",
   });
 
+  const [loading, setLoading] = React.useState(false);
+  const isValidEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(register?.email);
+
   //register function
   const handleRegister = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    try {
-      await signUp(register.email, register.password);
-      toast.success("Welcome to progressPal!");
-      setTimeout(() => {
-        router.push("/login");
-      }, 3000);
-    } catch (error: any) {
-      if (error.code === "auth/weak-password") {
-        toast.error("Weak password!");
-      } else if (error.code === "auth/invalid-email") {
-        toast.error("Invalid email address");
-      } else if (error.code === "auth/email-already-in-use") {
-        toast.error("Email already in use, kindly log in");
-      } else {
-        toast.error("Network error, kindly check your internet connection");
+    if (isValidEmail) {
+      try {
+        await signUp(register.email, register.password);
+        toast.success("Welcome to progressPal!");
+        setTimeout(() => {
+          router.push("/login");
+        }, 3000);
+      } catch (error: any) {
+        if (error.code === "auth/weak-password") {
+          toast.error("Weak password!");
+        } else if (error.code === "auth/invalid-email") {
+          toast.error("Invalid email address");
+        } else if (error.code === "auth/email-already-in-use") {
+          toast.error("Email already in use, kindly log in");
+        } else {
+          toast.error("Network error, kindly check your internet connection");
+        }
       }
+    } else {
+      toast.error("Invalid email address");
     }
   };
 
+  const handleGoogleAuth = () => {
+    setLoading(true);
+    googleAuth().then(() => {
+      setTimeout(() => {
+        toast.success("Welcome to ProgressPal");
+        router.push("/dashboard");
+      }, 3000);
+      setLoading(false);
+    });
+  };
   return (
     <main className="sm:grid sm:grid-cols-2 overflow-y-hidden flex flex-col-reverse h-full 2xl:container 2xl:mx-auto">
       <div className="lg:p-8 p-5">
@@ -89,21 +107,19 @@ const Signup = () => {
           </Link>
           <p className="flex items-center justify-center max-w-sm">OR</p>
           <div
-            onClick={() => {
-              googleAuth()
-                .then(() => {
-                  setTimeout(() => {
-                    toast.success("Welcome to ProgressPal");
-                    router.push("/");
-                  }, 3000);
-                })
-                .catch(()=> {
-                  toast("Google sign-in error");
-                });
-            }}
+            onClick={handleGoogleAuth}
             className="w-full cursor-pointer flex justify-center lg:max-w-sm bg-white my-3 border-black border-2 rounded-lg py-4 text-black"
           >
-            SIGN UP WITH GOOGLE
+            {!loading ? (
+              "SIGN UP WITH GOOGLE"
+            ) : (
+              <p className="flex items-center">
+                Please Wait
+                <span className="pl-2">
+                  <AiOutlineLoading3Quarters className="animate-spin" />
+                </span>
+              </p>
+            )}
           </div>
         </form>
       </div>
