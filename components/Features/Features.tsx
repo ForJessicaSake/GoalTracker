@@ -5,7 +5,7 @@ import { BsCheck2All } from "react-icons/bs";
 const featureArray = [
   {
     name: "Goals",
-    deets: `All your goals organized in one place as long as your do not mind typing it by hand, we got you`,
+    deets: `All your goals organized in one place as long as your do not mind typing it by hand, we got you.`,
   },
   {
     name: "Journal",

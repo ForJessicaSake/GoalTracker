@@ -18,5 +18,5 @@ export const onSuccess = () => {
     toast.success("Payment successfully completed");
 };
 export const onClose = () => {
-    toast.error("Your payment was unsuccessful, please try again!");
+    toast.error("Your payment was unsuccessful, please try again later!");
 };
