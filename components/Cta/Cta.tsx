@@ -16,7 +16,7 @@ const Cta = () => {
         </p>
         <div className="flex sm:flex-row flex-col" data-aos="fade-left">
           <Link href="/signup">
-            <Button className="bg-background text-white rounded-full p-2 w-48 h-14">
+            <Button className=" animate-pulse bg-background text-white rounded-full p-2 w-48 h-14">
               Register Now!
             </Button>
           </Link>

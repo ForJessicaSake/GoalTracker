@@ -25,7 +25,7 @@ const Header = () => {
               Free Forever
             </Button>
           </Link>
-          <Button className="flex items-center justify-center bg-white text-background border w-44 rounded-full sm:mx-5 my-4 sm:my-0">
+          <Button className="flex items-center hover:text-black justify-center bg-white text-background border w-44 rounded-full sm:mx-5 my-4 sm:my-0">
             <CiPlay1 className="mr-1 text-lg" />
             Watch Demo
           </Button>
