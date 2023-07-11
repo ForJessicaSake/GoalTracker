@@ -15,12 +15,15 @@ const Signup = () => {
     email: "",
     password: "",
   });
-
-  const [loading, setLoading] = React.useState(false);
+  const [isLoading, setIsLoading] = React.useState({
+    googleAuth:false,
+    emailAuth:false
+  })
   const isValidEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(register?.email);
 
   //register function
   const handleRegister = async (e: React.FormEvent<HTMLFormElement>) => {
+    setIsLoading({...isLoading, emailAuth:true})
     e.preventDefault();
     if (isValidEmail) {
       try {
@@ -43,16 +46,17 @@ const Signup = () => {
     } else {
       toast.error("Invalid email address");
     }
+    setIsLoading({...isLoading, emailAuth:false})
   };
 
   const handleGoogleAuth = () => {
-    setLoading(true);
+    setIsLoading({...isLoading, googleAuth:true})
     googleAuth().then(() => {
       setTimeout(() => {
         toast.success("Welcome to ProgressPal");
         router.push("/dashboard");
       }, 2500);
-      setLoading(false);
+      setIsLoading({...isLoading, googleAuth:true})
     });
   };
   return (
@@ -94,7 +98,7 @@ const Signup = () => {
             }
           />
           <div className="flex lg:flex-row flex-col justify-between  items-center lg:max-w-sm">
-            <Button className="bg-card hover:bg-background text-white w-40 rounded-lg">
+            <Button className="bg-card hover:bg-background text-white w-40 rounded-lg" disabled={isLoading.emailAuth}>
               SIGN UP
             </Button>
             <div className="lg:py-0 pt-3">Already have an account?</div>
@@ -110,7 +114,7 @@ const Signup = () => {
             onClick={handleGoogleAuth}
             className="w-full cursor-pointer flex justify-center lg:max-w-sm bg-white my-3 border-black border-2 rounded-lg py-4 text-black"
           >
-            {!loading ? (
+            {!isLoading.googleAuth ? (
               "SIGN UP WITH GOOGLE"
             ) : (
               <p className="flex items-center">

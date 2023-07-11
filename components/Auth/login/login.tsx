@@ -11,7 +11,11 @@ import { AiOutlineLoading3Quarters } from "react-icons/ai";
 
 const Login = () => {
   const currentUser = UseAuth();
-  const [loading, setLoading] = React.useState(false);
+  const [isLoading, setIsLoading] = React.useState({
+    googleAuth:false,
+    emailAuth:false
+  })
+
   const router = useRouter();
   //signin user object
   const [user, setUser] = React.useState({
@@ -23,6 +27,7 @@ const Login = () => {
   const handleLogin = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     try {
+      setIsLoading({...isLoading, emailAuth:true})
       await logIn(user.email, user.password);
       toast.success(`Set goals and make it happen!`);
       localStorage.setItem("user", JSON.stringify(user));
@@ -39,16 +44,18 @@ const Login = () => {
         toast.error("Network error, kindly check your internet connection");
       }
     }
+    setIsLoading({...isLoading, emailAuth:false})
+
   };
 
   const handleGoogleAuth = () => {
-    setLoading(true);
+    setIsLoading({...isLoading, googleAuth:true})
     googleAuth().then(() => {
       setTimeout(() => {
         toast.success("Welcome to ProgressPal");
         router.push("/dashboard");
       }, 2500);
-      setLoading(true);
+      setIsLoading({...isLoading, googleAuth:false})
     });
   };
 
@@ -94,7 +101,7 @@ const Login = () => {
             onChange={(e) => setUser({ ...user, password: e.target.value })}
           />
           <div className="flex lg:flex-row flex-col justify-between  items-center lg:max-w-sm">
-            <Button className="bg-card hover:bg-background text-white w-40 rounded-lg">
+            <Button className="bg-card hover:bg-background text-white w-40 rounded-lg" disabled={isLoading.emailAuth}>
               LOGIN
             </Button>
             <Link href="/forgotpassword" className="lg:py-0 pt-3">
@@ -112,7 +119,7 @@ const Login = () => {
             onClick={handleGoogleAuth}
             className="w-full cursor-pointer flex justify-center lg:max-w-sm bg-white my-3 border-black border-2 rounded-lg py-4 text-black"
           >
-            {!loading ? (
+            {!isLoading.googleAuth ? (
               "SIGN IN WITH GOOGLE"
             ) : (
               <p className="flex items-center">
