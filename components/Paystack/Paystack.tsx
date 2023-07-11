@@ -15,12 +15,8 @@ export const config: PaystackProps = {
 };
 
 export const onSuccess = () => {
-  setTimeout(() => {
     toast.success("Payment successfully completed");
-  }, 500);
 };
 export const onClose = () => {
-  setTimeout(() => {
     toast.error("Your payment was unsuccessful, please try again!");
-  }, 500);
 };
