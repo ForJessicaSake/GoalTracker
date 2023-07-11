@@ -8,7 +8,7 @@ import Button from "../Micro/Button/Button";
 const Navbar = () => {
   const [nav, setNav] = React.useState(false);
   return (
-    <nav className="mx-auto container p-5">
+    <nav className="mx-auto container p-5 z-50">
       {/*desktop*/}
       <div className="justify-between items-center hidden lg:flex">
         <div className="flex items-center w-6/12 justify-between">

@@ -126,13 +126,13 @@ const Tabs = () => {
         </div>
       </div>
 
-      <div className="grid flex-grow w-full gap-x-1 md:grid-cols-3 lg:grid-cols-5">
+      <div className="grid flex-grow w-full  gap-x-1 md:grid-cols-3 lg:grid-cols-5">
         <section className="md:bg-white bg-black w-full ">
           <ul
             className={` flex md:pt-10 md:h-fit md:static md:w-full absolute px-5 w-full left-0 top-[78px] py-10 text-lg cursor-pointer flex-col md:items-start md:space-x-0 ${
               !tabNavigation
                 ? "hidden  md:block"
-                : " flex sm:items-center bg-white text-black  h-full"
+                : " flex sm:items-center z-50 bg-white text-black  h-full"
             }`}
           >
             {tabs.map((tab) => (

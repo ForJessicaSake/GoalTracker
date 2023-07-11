@@ -28,7 +28,7 @@ const Login = () => {
       localStorage.setItem("user", JSON.stringify(user));
       setTimeout(() => {
         router.push("/dashboard");
-      }, 2800);
+      }, 2500);
     } catch (error: any) {
       console.log(error.code);
       if (error.code === "auth/email-already-in-use") {
@@ -47,7 +47,7 @@ const Login = () => {
       setTimeout(() => {
         toast.success("Welcome to ProgressPal");
         router.push("/dashboard");
-      }, 2800);
+      }, 2500);
       setLoading(true);
     });
   };

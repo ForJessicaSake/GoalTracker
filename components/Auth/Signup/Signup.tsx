@@ -28,7 +28,7 @@ const Signup = () => {
         toast.success("Welcome to progressPal!");
         setTimeout(() => {
           router.push("/login");
-        }, 3000);
+        }, 2500);
       } catch (error: any) {
         if (error.code === "auth/weak-password") {
           toast.error("Weak password!");
@@ -51,7 +51,7 @@ const Signup = () => {
       setTimeout(() => {
         toast.success("Welcome to ProgressPal");
         router.push("/dashboard");
-      }, 2800);
+      }, 2500);
       setLoading(false);
     });
   };

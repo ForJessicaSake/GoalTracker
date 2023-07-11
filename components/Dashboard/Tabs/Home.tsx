@@ -9,9 +9,9 @@ const Home = () => {
   return (
     <main>
       <div className="px-5">
-        <div className="flex justify-between items-center">
+        <div className="flex lg:flex-row flex-col justify-between lg:items-center">
           <div className="leading-7">
-            <h1 className="sm:text-5xl text-4xl font-semibold">
+            <h1 className="lg:text-5xl text-4xl font-semibold">
               Did you know?{" "}
             </h1>
             <p className="py-1">
@@ -20,7 +20,7 @@ const Home = () => {
             </p>
           </div>
           <Button
-            className="bg-black motion-safe:animate-pulse text-white w-40 rounded-full"
+            className="bg-black my-5 lg:my-0 motion-safe:animate-pulse text-white w-40 rounded-full"
             onClick={() => initializePayment(onSuccess, onClose)}
           >
             Upgrade to Pro
