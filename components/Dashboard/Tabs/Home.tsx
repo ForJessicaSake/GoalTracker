@@ -31,25 +31,25 @@ const Home = () => {
             <div className="bg-background h-20 w-20  text-white flex items-center justify-center text-2xl font-semibold rounded-full">
               0
             </div>
-            <p className="py-2 text-lg font-semibold">Goals</p>
+            <p className="py-2 sm:text-lg font-semibold">Goals</p>
           </div>
           <div className="bg-black text-white w-full flex flex-col justify-center items-center  rounded-lg p-5">
             <div className="bg-white h-20 w-20 text-black flex items-center justify-center text-2xl font-semibold rounded-full">
               0
             </div>
-            <p className="py-2 text-lg font-semibold">Tasks</p>
+            <p className="py-2 sm:text-lg font-semibold">Tasks</p>
           </div>
           <div className="bg-black text-white w-full flex flex-col justify-center items-center  rounded-lg p-5">
             <div className="bg-white h-24 w-24 text-black flex items-center justify-center text-2xl font-semibold rounded-full">
               0
             </div>
-            <p className="py-2 text-lg font-semibold">In Progress</p>
+            <p className="py-2 sm:text-lg font-semibold">Pending</p>
           </div>
           <div className="bg-black text-white w-full flex flex-col justify-center items-center  rounded-lg p-5">
             <div className="bg-background h-24 w-24 text-white flex items-center justify-center text-2xl font-semibold rounded-full">
               0
             </div>
-            <p className="py-2 text-lg font-semibold">Completed</p>
+            <p className="py-2 sm:text-lg font-semibold">Completed</p>
           </div>
         </div>
       </div>
