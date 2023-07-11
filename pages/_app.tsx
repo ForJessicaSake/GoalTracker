@@ -3,7 +3,7 @@ import type { AppProps } from "next/app";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import React from "react";
-import { ToastContainer } from "react-toastify";
+import { ToastContainer, Slide } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 function MyApp({ Component, pageProps }: AppProps) {
@@ -26,6 +26,7 @@ function MyApp({ Component, pageProps }: AppProps) {
         pauseOnFocusLoss
         draggable
         pauseOnHover
+        transition={Slide}
         theme="dark"
       />
     </div>

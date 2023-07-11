@@ -1,13 +1,13 @@
 import { toast } from "react-toastify";
 
-type PaystackProps ={
-    reference: any,
-    email: string,
-    amount: number,
-    publicKey: string | any,
-}
+type PaystackProps = {
+  reference: any;
+  email: string;
+  amount: number;
+  publicKey: string | any;
+};
 
-export const config : PaystackProps= {
+export const config: PaystackProps = {
   reference: new Date().getTime().toString(),
   email: "user@example.com",
   amount: 500000,
@@ -15,8 +15,12 @@ export const config : PaystackProps= {
 };
 
 export const onSuccess = () => {
-  toast.success("Payment successfully completed");
+  setTimeout(() => {
+    toast.success("Payment successfully completed");
+  }, 500);
 };
 export const onClose = () => {
-  toast.error("Your payment was unsuccessful, please try again!");
+  setTimeout(() => {
+    toast.error("Your payment was unsuccessful, please try again!");
+  }, 500);
 };
