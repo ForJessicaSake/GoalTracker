@@ -132,7 +132,7 @@ const Tabs = () => {
                 <li className={`text-lg ${tab.query === CurrentTab ? "bg-black rounded-lg text-white w-fit" : ""} p-2` }>{tab.title}</li>
               </div>
             ))}
-            <li className="flex items-center text-xl px-2">
+            <li className="flex items-center text-lg px-2">
               <AiOutlineLogout className="mr-2" /> Logout
             </li>
           </ul>
