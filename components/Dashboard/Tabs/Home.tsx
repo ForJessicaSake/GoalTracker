@@ -20,7 +20,7 @@ const Home = () => {
             </p>
           </div>
           <Button
-            className="bg-black my-5 lg:my-0 motion-safe:animate-pulse text-white w-40 rounded-full"
+            className="bg-black my-5 lg:my-0 motion-safe:animate-pulse text-white lg:w-40 w-fit rounded-full"
             onClick={() => initializePayment(onSuccess, onClose)}
           >
             Upgrade to Pro

@@ -12,7 +12,7 @@ const Goals = () => {
           </div>
         </div>
 
-        <div className="grid gap-5 grid-cols-3 h-96  py-7">
+        <div className="grid gap-5 lg:grid-cols-3 sm:grid-cols-2 h-96  py-7">
           <div className="bg-gray-100 w-full rounded-lg p-5">Goals</div>
           <div className="bg-gray-100 w-full rounded-lg p-5">Plans</div>
           <div className="bg-gray-100 w-full rounded-lg p-5">Achieved</div>
