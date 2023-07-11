@@ -1,6 +1,7 @@
 import React from "react";
 import Button from "../Micro/Button/Button";
 import { CiPlay1 } from "react-icons/ci";
+import Link from "next/link";
 
 const Header = () => {
   return (
@@ -19,9 +20,11 @@ const Header = () => {
           make the trade-offs better and hope you enjoy your stay here.
         </p>
         <div className="sm:flex">
-          <Button className=" bg-black text-white w-44 rounded-full">
-            Free Forever
-          </Button>
+          <Link href="/signup">
+            <Button className=" bg-black text-white w-44 rounded-full">
+              Free Forever
+            </Button>
+          </Link>
           <Button className="flex items-center justify-center bg-white text-background border w-44 rounded-full sm:mx-5 my-4 sm:my-0">
             <CiPlay1 className="mr-1 text-lg" />
             Watch Demo

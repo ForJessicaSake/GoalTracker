@@ -19,7 +19,7 @@ const Navbar = () => {
               width={34}
               height={34}
             />
-            <span className="pl-1 text-lg font-bold">progressPal</span>
+            <span className="pl-1 text-lg font-bold">GoalTracker</span>
           </Link>
           <ul className="flex items-center justify-between w-9/12 pl-4 text-gray-600 cursor-pointer">
             <li>

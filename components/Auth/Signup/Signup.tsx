@@ -51,7 +51,7 @@ const Signup = () => {
       setTimeout(() => {
         toast.success("Welcome to ProgressPal");
         router.push("/dashboard");
-      }, 3000);
+      }, 2800);
       setLoading(false);
     });
   };

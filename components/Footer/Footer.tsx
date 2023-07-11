@@ -8,9 +8,9 @@ const Footer = () => {
   return (
     <footer
       id="contact"
-      className="mx-auto container px-5 py-4 pt-10 lg:pt-16 space-y-10 lg:space-y-0 w-full font-medium flex sm:flex-row flex-col justify-between"
+      className="mx-auto container px-5 py-4 pt-10 lg:pt-16 space-y-10 sm:gap-10 lg:gap-0  sm:space-y-0 w-full font-medium flex flex-col lg:flex lg:flex-row sm:grid sm:grid-cols-2 justify-between"
     >
-      <ul className="">
+      <ul >
         <li>
           <Link href="/" className="flex items-center">
             <Image
@@ -19,7 +19,7 @@ const Footer = () => {
               width={34}
               height={34}
             />
-            <span className="pl-1 text-lg font-bold">progressPal</span>
+            <span className="pl-1 text-lg font-bold">GoalTracker</span>
           </Link>
         </li>
         <li className="py-4 flex items-center">

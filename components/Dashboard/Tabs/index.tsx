@@ -1,18 +1,21 @@
 import React from "react";
 import { useRouter } from "next/router";
 import Goals from "./Goals";
-import Home from "./Home";
 import Statistics from "./Statistics";
 import Todos from "./Todos";
 import Image from "next/image";
-import { BiTask} from "react-icons/bi";
+import { BiTask } from "react-icons/bi";
 import { IoIosStats } from "react-icons/io";
 import { AiOutlineLogout, AiOutlineHome } from "react-icons/ai";
 import { CiMenuBurger } from "react-icons/ci";
 import { TfiClose } from "react-icons/tfi";
 import { GiStairsGoal } from "react-icons/gi";
-import {BsPersonCheckFill} from "react-icons/bs"
+import { BsPersonCheckFill } from "react-icons/bs";
 import Link from "next/link";
+import Home from "./Home";
+import { Logout } from "../../Utils/Firebase/Firebase";
+import { toast } from "react-toastify";
+import Button from "../../Micro/Button/Button";
 
 export type TabsTypes = {
   title: React.ReactNode;
@@ -28,6 +31,7 @@ const tabs: TabsTypes[] = [
     ),
     query: "home",
   },
+
   {
     title: (
       <div className="flex items-center">
@@ -89,6 +93,14 @@ const Tabs = () => {
     return <TabComponent />;
   }, [CurrentTab]);
 
+  const handleLogOut = () => {
+    Logout();
+    setTimeout(() => {
+      toast.info("Bye for now, see you soon!");
+      router.push("/");
+    }, 500);
+  };
+
   return (
     <main className="2xl:container 2xl:mx-auto">
       <div className="items-center p-5 flex justify-between border-b">
@@ -99,10 +111,12 @@ const Tabs = () => {
             width={34}
             height={34}
           />
-          <span className="pl-1 text-lg font-bold">progressPal</span>
+          <span className="pl-1 text-lg font-bold">GoalTracker</span>
         </Link>
 
-        <p className="md:block hidden text-3xl xl:text-2xl text-black"><BsPersonCheckFill/></p>
+        <p className="md:block hidden text-3xl xl:text-2xl text-black">
+          <BsPersonCheckFill />
+        </p>
 
         <div
           onClick={() => setTabNavigation(!tabNavigation)}
@@ -116,30 +130,42 @@ const Tabs = () => {
         <section className="md:bg-white bg-black w-full ">
           <ul
             className={` flex md:pt-10 md:h-fit md:static md:w-full absolute px-5 w-full left-0 top-[78px] py-10 text-lg cursor-pointer flex-col md:items-start md:space-x-0 ${
-              !tabNavigation ? "hidden  md:block" : " flex sm:items-center bg-white text-black  h-full"
+              !tabNavigation
+                ? "hidden  md:block"
+                : " flex sm:items-center bg-white text-black  h-full"
             }`}
           >
             {tabs.map((tab) => (
               <div
                 key={tab.query}
-                className="pb-5"
+                className="pb-7"
                 onClick={() => {
                   handleTabChange(tab.query);
                   setTabNavigation(false);
-                  
                 }}
               >
-                <li className={`text-lg ${tab.query === CurrentTab ? "bg-black rounded-lg text-white w-fit" : ""} p-2` }>{tab.title}</li>
+                <li
+                  className={`text-lg ${
+                    tab.query === CurrentTab
+                      ? "bg-black rounded-lg text-white w-fit"
+                      : ""
+                  } p-2`}
+                >
+                  {tab.title}
+                </li>
               </div>
             ))}
-            <li className="flex items-center text-lg px-2">
+            <Button
+              className="flex items-center text-lg px-2"
+              onClick={handleLogOut}
+            >
               <AiOutlineLogout className="mr-2" /> Logout
-            </li>
+            </Button>
           </ul>
         </section>
 
-        <section className="w-full h-full py-10 border-l md:col-span-2 lg:col-span-4">
-          <div className="font-nunito px-5">
+        <section className="w-full h-full py-8 border-l md:col-span-2 lg:col-span-4">
+          <div className="font-nunito">
             <Component />
           </div>
         </section>

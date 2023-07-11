@@ -1,9 +1,28 @@
-import React from 'react'
+import React from "react";
+import Footer from "../../Footer/Footer";
 
 const Goals = () => {
   return (
-    <div>Goals</div>
-  )
-}
+    <main>
+      <div className="px-5">
+        <div className="flex justify-between">
+          <div className="leading-7">
+            <h1 className="text-4xl font-semibold">Hello Jessica, </h1>
+            <p className="pt-2">What are your goals for today? </p>
+          </div>
+        </div>
 
-export default Goals
+        <div className="grid gap-5 grid-cols-3 h-96  py-7">
+          <div className="bg-gray-100 w-full rounded-lg p-5">Goals</div>
+          <div className="bg-gray-100 w-full rounded-lg p-5">Plans</div>
+          <div className="bg-gray-100 w-full rounded-lg p-5">Achieved</div>
+        </div>
+      </div>
+      <div className="border-t">
+        <Footer />
+      </div>
+    </main>
+  );
+};
+
+export default Goals;

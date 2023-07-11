@@ -10,6 +10,7 @@ const pricingObject = [
     description: "Perfect for you and your goals",
     color: "white",
     text: "black",
+    number:200
   },
   {
     plan: "Basic",
@@ -17,6 +18,8 @@ const pricingObject = [
     description: "Perfect for you and your team goals",
     color: "background",
     text: "white",
+    number:600
+
   },
   {
     plan: "Pro",
@@ -24,6 +27,7 @@ const pricingObject = [
     description: "Perfect for you and your team to set and track goals",
     color: "white",
     text: "black",
+    number:"1000+"
   },
 ];
 
@@ -62,6 +66,7 @@ const PriceComponent = () => {
       {pricingObject.map((deets) => (
         <div
           className={`bg-${deets.color} text-${deets.text} p-6 rounded-2xl xl:w-96`}
+          key={deets.price}
         >
           <h1 className="text-5xl">${deets.price}</h1>
           <p className="py-1 font-semibold text-lg">{deets.plan}</p>
@@ -75,7 +80,7 @@ const PriceComponent = () => {
             </p>
             <p className="flex items-center">
               <BsCheck2All className="mr-2 text-green-400" />
-              Track up to 1000 goals
+              Track up to {deets.number} goals
             </p>
             <p className="flex items-center">
               <BsCheck2All className="mr-2 text-green-400" /> Easily report your

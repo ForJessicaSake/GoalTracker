@@ -5,32 +5,32 @@ const Reviews = [
   {
     name: "Therasa George",
     role: "Teacher",
-    deets:`ProgressPal is so easy to use I cannot help but wonder if it is really going to track my goals, we would see I guess.`,
+    deets:`GoalTracker is so easy to use I cannot help but wonder if it is really going to track my goals, we would see I guess.`,
   },
   {
     name: "Steven Ray",
     role: "software Engineer",
-    deets:`ProgressPal offers a ton of features and it is really worth the buzz. Tracking goals and making notes makes a huge difference in getting organized.`,
+    deets:`GoalTracker offers a ton of features and it is really worth the buzz. Tracking goals and making notes makes a huge difference in getting organized.`,
   },
   {
     name: "Steve Grey",
     role: "Engineer",
-    deets:`I love ProgressPal, the UI is top notch and the features it offers are so amazing especially cause it is free forever`,
+    deets:`I love GoalTracker, the UI is top notch and the features it offers are so amazing especially cause it is free forever`,
   },
   {
     name: "John Doe",
     role: "Student",
-    deets:"The best part of progressPal is that I can make notes on my progress and reschedule it.",
+    deets:"The best part of GoalTracker is that I can make notes on my progress and reschedule it.",
   },
   {
     name: "Rachael Moses",
     role: "Doctor",
-    deets:`There are so many things I had to do with other note applications that I just do not do with progressPal. Suspicious but I cannot say I do not love it.`,
+    deets:`There are so many things I had to do with other note applications that I just do not do with GoalTracker. Suspicious but I cannot say I do not love it.`,
   },
   {
     name: "Peter Kye",
     role: "Receptionist",
-    deets:`I am usually very disorgonized but since I started using progressPal, I have been nailing all my tasks on time`,
+    deets:`I am usually very disorgonized but since I started using GoalTracker, I have been nailing all my tasks on time`,
   },
 ];
 

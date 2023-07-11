@@ -48,9 +48,10 @@ export function googleAuth() {
 
   }
 
+
 //custom hook for signUp
 export function UseAuth() {
-    const [currentUser, setCurrentUser] = useState(null);
+    const [currentUser, setCurrentUser] = useState("");
     useEffect(() => {
         const account = onAuthStateChanged(auth, (user:any) => {
             setCurrentUser(user);
