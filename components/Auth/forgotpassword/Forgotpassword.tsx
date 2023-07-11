@@ -5,7 +5,7 @@ import Button from "../../Micro/Button/Button";
 
 const Forgotpassword = () => {
   return (
-    <main className="sm:grid sm:grid-cols-2 flex flex-col-reverse overflow-y-hidden h-full 2xl:container 2xl:mx-auto">
+    <main className="sm:grid sm:grid-cols-2 overflow-y-hidden h-full 2xl:container 2xl:mx-auto">
       <div className="lg:p-8 p-5">
         <Link href="/" className="flex items-center">
           <Image
@@ -20,7 +20,7 @@ const Forgotpassword = () => {
           className=" flex flex-col h-full justify-center"
           data-aos="zoom-in"
         >
-          <label className="text-2xl py-5 font-semibold">
+          <label className="text-2xl sm:py-5 py-8 font-semibold">
             Forgot Password?
           </label>
           <input
@@ -51,7 +51,7 @@ const Forgotpassword = () => {
           </Link>
         </form>
       </div>
-      <section className="bg-card h-screen flex items-center px-5">
+      <section className="bg-card h-screen sm:flex hidden items-center px-5">
         <Image src="/assets/sign.png" alt="sign in" width={600} height={400} />
       </section>
     </main>
