@@ -7,7 +7,7 @@ const Goals = () => {
       <div className="px-5">
         <div className="flex justify-between">
           <div className="leading-7">
-            <h1 className="text-4xl font-semibold">Hello Jessica, </h1>
+            <h1 className="text-4xl font-semibold">Hello User, </h1>
             <p className="pt-2">What are your goals for today? </p>
           </div>
         </div>

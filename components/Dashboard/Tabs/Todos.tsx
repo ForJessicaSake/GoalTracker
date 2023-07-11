@@ -5,7 +5,7 @@ const Todos = () => {
   return (
     <main>
       <div className="px-5">
-        <h1 className="text-5xl font-semibold">Todos</h1>
+      <h1 className="text-4xl font-semibold">Hello User, </h1>
         <p className="pt-2">What are your plans for today? </p>
         <div className="grid gap-5 lg:grid-cols-3 sm:grid-cols-2 h-96  py-7">
           <div className="bg-gray-100 w-full rounded-lg p-5">To do</div>
