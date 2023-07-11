@@ -24,7 +24,7 @@ const Statistics = () => {
           </p>
 
           <Button
-            className="bg-black text-lg my-3 mb-5 text-white w-40 font-semibold rounded-full"
+            className="bg-black animate-pulse text-lg my-3 mb-5 text-white w-40 font-semibold rounded-full"
             onClick={() => initializePayment(onSuccess, onClose)}
           >
             Upgrade Now
