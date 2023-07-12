@@ -8,7 +8,7 @@ const Home = () => {
   const initializePayment = usePaystackPayment(config);
   return (
     <main>
-      <div className="px-5">
+      <div className="px-3 sm:px-5">
         <div className="flex lg:flex-row flex-col justify-between lg:items-center">
           <div className="leading-7">
             <h1 className="lg:text-5xl text-4xl font-semibold">

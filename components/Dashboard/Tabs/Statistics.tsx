@@ -10,7 +10,7 @@ const Statistics = () => {
   const initializePayment = usePaystackPayment(config);
   return (
     <main className="">
-      <section className="flex justify-center items-center px-5 flex-col text-center">
+      <section className="flex justify-center items-center sm:px-5 px-3 flex-col text-center">
         <div>
           <Image src="/assets/download.png" alt="" width={120} height={120} />
         </div>

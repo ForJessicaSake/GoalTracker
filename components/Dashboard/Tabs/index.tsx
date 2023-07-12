@@ -103,7 +103,7 @@ const Tabs = () => {
 
   return (
     <main className="2xl:container 2xl:mx-auto">
-      <div className="items-center p-5 flex justify-between border-b">
+      <div className="items-center sm:p-5 p-3 flex justify-between border-b">
         <Link href="/" className="flex items-center">
           <Image
             src="/assets/Navbar/logo.png"
@@ -129,7 +129,7 @@ const Tabs = () => {
       <div className="grid flex-grow w-full  gap-x-1 md:grid-cols-3 lg:grid-cols-5">
         <section className="md:bg-white bg-black w-full ">
           <ul
-            className={` flex md:pt-10 md:h-fit md:static md:w-full absolute px-5 w-full left-0 top-[78px] py-10 text-lg cursor-pointer flex-col md:items-start md:space-x-0 ${
+            className={` flex md:pt-10 md:h-fit md:static md:w-full absolute px-5 w-full left-0 top-[78px] py-5 text-lg cursor-pointer flex-col md:items-start md:space-x-0 ${
               !tabNavigation
                 ? "hidden  md:block"
                 : " flex sm:items-center z-50 bg-white text-black  h-full"

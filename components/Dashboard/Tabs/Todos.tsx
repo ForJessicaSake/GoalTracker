@@ -60,20 +60,18 @@ const Todos = () => {
 
   return (
     <main>
-      <div className="px-5">
-        <div className="flex lg:flex-row flex-col justify-between">
+      <div className="sm:px-5 px-3">
+        <div className="flex lg:flex-row flex-col justify-between max-w-full">
           <div className="leading-7">
-            <h1 className="text-4xl font-semibold">Hello User, </h1>
+            <h1 className="sm:text-4xl text-2xl font-semibold">Hello User, </h1>
             <p className="pt-2">What are your Todos for today? </p>
           </div>
-          <div>
+          <div className="w-64 sm:w-fit">
             <div className="flex items-center justify-between py-3">
               <h3 className="flex items-center justify-center">
                 <FaArrowRight className="text-lg mr-2 animate-verticalBounce" />
-                <span className="text-background mr-2 font-semibold">
-                  Select
-                </span>
-                a due date to for your task
+                <span className="text-background mr-2 font-semibold">Due</span>
+                date?
               </h3>
             </div>
             <Calendar onChange={handleDateChange} value={value} />
