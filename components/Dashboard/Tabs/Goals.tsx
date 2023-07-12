@@ -47,7 +47,7 @@ const Goals = () => {
       <div className="flex lg:flex-row flex-col items-center lg:items-start text-center lg:text-start justify-between max-w-full">
           <div className="leading-7">
             <h1 className="sm:text-4xl text-2xl font-semibold">Welcome back, </h1>
-            <p className="pt-2 sm:text-base text-sm">
+            <p className="py-2 sm:text-base text-sm">
               What are your goals for today?{" "}
             </p>
             <Image src="/assets/signup.jpg" alt="id" width={400} height={300}/>
