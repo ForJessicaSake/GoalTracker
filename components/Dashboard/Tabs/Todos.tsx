@@ -23,6 +23,7 @@ import Card from "../../Micro/Card/Card";
 import useFetch from "../../Hooks/fetch/useFetch";
 import Completed from "../../Micro/Card/Completed";
 import Image from "next/image";
+import Button from "../../Micro/Button/Button";
 
 type goal = {
   name: string;
@@ -76,6 +77,12 @@ const Todos = () => {
                 <span className="text-background mr-2 font-semibold">Due</span>
                 date?
               </h3>
+              <Button
+                onClick={() => setModal(true)}
+                className="bg-black text-white rounded-lg p-1 "
+              >
+                Add Todo
+              </Button>
             </div>
             <Calendar onChange={handleDateChange} value={value} className="" />
           </div>
@@ -113,7 +120,7 @@ const Todos = () => {
                 0
               </div>
             </div>
-            <div className="h-1 rounded-full bg-white w-full"></div>
+            <div className="h-1 rounded-full bg-black w-full"></div>
             <Pending
               tasks={data}
               collectionName="todos"
