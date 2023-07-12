@@ -11,6 +11,7 @@ import { collection, onSnapshot, doc, deleteDoc } from "firebase/firestore";
 import PopUp from "../../Popup/Popup";
 import { DueDate } from "../../Popup/Popup";
 import { toast } from "react-toastify";
+import Pending from "../../Micro/Card/Pending";
 
 export interface Task {
   id: string;
@@ -141,27 +142,7 @@ const Goals = () => {
               </div>
             </div>
             <div className="h-1 rounded-full bg-black w-full"></div>
-            <div className=" text-black py-3 gap-5 grid ">
-              {data &&
-                data.map((goals) => (
-                  <div key={goals.id} className="bg-white p-4 rounded-md">
-                    <div className="flex justify-between">
-                      <div className=" bg-green-500 text-white rounded-sm text-xs w-fit p-1 flex justify-center items-center">
-                        {goals.priority}
-                      </div>
-                    </div>
-                    <h2 className="py-3 font-semibold">{goals.title}</h2>
-                    <p className="text-xs">{goals.description}</p>
-                    <h2 className="py-4 text-sm">
-                      Due date:{" "}
-                      {goals.dueDate ? getDateValue(goals.dueDate) : ""}
-                    </h2>
-                    <div className="flex border-b hover:border-b-2 cursor-pointer border-black justify-end items-center text-sm">
-                      Mark as Completed <BsCheck2All className="ml-2 text-lg" />{" "}
-                    </div>
-                  </div>
-                ))}
-            </div>
+            <Pending tasks={data} />
           </div>
 
           <div className="bg-slate-50 text-black w-full rounded-lg p-2">
