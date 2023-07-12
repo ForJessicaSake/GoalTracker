@@ -49,7 +49,7 @@ const PopUp = ({ modal, handleModal, value, collectionName }: any) => {
       setTimeout(() => {
         toast.success("New goal successfully set!");
         handleModal();
-      }, 1000);
+      }, 400);
     } catch (err) {
       toast.error("Failed to set the new goal. Please try again.");
     }

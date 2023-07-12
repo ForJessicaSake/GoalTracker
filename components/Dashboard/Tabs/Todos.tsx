@@ -20,6 +20,8 @@ import { toast } from "react-toastify";
 import { FaArrowRight } from "react-icons/fa";
 import Pending from "../../Micro/Card/Pending";
 import Card from "../../Micro/Card/Card";
+import useFetch from "../../Hooks/fetch/useFetch";
+import Completed from "../../Micro/Card/Completed";
 
 type goal = {
   name: string;
@@ -37,13 +39,8 @@ const Todos = () => {
     onChange(date);
   };
 
-  //fetch functionality
-  const [data, setData] = React.useState<Task[]>([]);
-  React.useEffect(() => {
-    onSnapshot(collection(db, "todos"), (snapshot) => {
-      setData(snapshot.docs.map((doc) => ({ ...doc.data(), id: doc?.id })));
-    });
-  }, []);
+  const data = useFetch("todos");
+  const completed = useFetch("completedTodos");
 
   //delete frunctionality -goals(collection name)
   const handleDelete = async (id: string) => {
@@ -64,7 +61,9 @@ const Todos = () => {
         <div className="flex lg:flex-row flex-col justify-between max-w-full">
           <div className="leading-7">
             <h1 className="sm:text-4xl text-2xl font-semibold">Hello User, </h1>
-            <p className="pt-2">What are your Todos for today? </p>
+            <p className="pt-2 sm:text-base text-sm">
+              What are your todos for today?{" "}
+            </p>
           </div>
           <div className="w-64 sm:w-fit">
             <div className="flex items-center justify-between py-3">
@@ -111,7 +110,11 @@ const Todos = () => {
               </div>
             </div>
             <div className="h-1 rounded-full bg-white w-full"></div>
-            <Pending tasks={data} />
+            <Pending
+              tasks={data}
+              collectionName="todos"
+              database="completedTodos"
+            />
           </div>
 
           <div className="bg-slate-50 text-black w-full rounded-lg p-2">
@@ -125,6 +128,7 @@ const Todos = () => {
               </div>
             </div>
             <div className="h-1 rounded-full bg-card w-full"></div>
+            <Completed tasks={completed.slice(0,5)} />
           </div>
         </div>
         <div className="border-t">

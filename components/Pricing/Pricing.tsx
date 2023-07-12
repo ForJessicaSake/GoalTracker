@@ -38,7 +38,7 @@ const Pricing = () => {
       id="pricing"
       className="mx-auto container text-white bg-black py-14 flex flex-col items-center justify-center"
     >
-      <div className="px-5">
+      <div className="px-3 sm:px-5">
         <div className="text-center">
           <h1 className="text-3xl font-semibold">
             Simple <span className="text-background">Pricing </span> For

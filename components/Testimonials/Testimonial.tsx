@@ -36,7 +36,7 @@ const Reviews = [
 
 const Testimonial = () => {
   return (
-    <main className="mx-auto container px-5 py-20" id="testimonials">
+    <main className="mx-auto container px-3 sm:px-5 py-20" id="testimonials">
       <div className="flex flex-col items-center text-center justify-center">
         <h1 className="sm:text-4xl font-semibold text-3xl">Loved by People Worldwide.</h1>
         <p className="max-w-2xl py-3">

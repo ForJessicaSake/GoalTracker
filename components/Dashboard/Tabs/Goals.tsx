@@ -3,16 +3,13 @@ import Footer from "../../Footer/Footer";
 import Calendar from "react-calendar";
 import "react-calendar/dist/Calendar.css";
 import { FaArrowRight } from "react-icons/fa";
-import { BsDot, BsPlusLg, BsCheck2All } from "react-icons/bs";
-import { AiOutlineDelete } from "react-icons/ai";
-import { FiEdit } from "react-icons/fi";
-import { db } from "../../Utils/Firebase/Firebase";
-import { collection, onSnapshot, doc, deleteDoc } from "firebase/firestore";
+import { BsDot, BsPlusLg } from "react-icons/bs";
 import PopUp from "../../Popup/Popup";
 import { DueDate } from "../../Popup/Popup";
-import { toast } from "react-toastify";
 import Pending from "../../Micro/Card/Pending";
 import Card from "../../Micro/Card/Card";
+import Completed from "../../Micro/Card/Completed";
+import useFetch from "../../Hooks/fetch/useFetch";
 
 export interface Task {
   id: string;
@@ -39,32 +36,25 @@ const Goals = () => {
   const handleDateChange = (date: any) => {
     onChange(date);
   };
-
-  //fetch functionality
-  const [data, setData] = React.useState<Task[]>([]);
-  React.useEffect(() => {
-    onSnapshot(collection(db, "goals"), (snapshot) => {
-      setData(snapshot.docs.map((doc) => ({ ...doc.data(), id: doc?.id })));
-      console.log(data);
-    });
-  }, []);
+  const data = useFetch("goals");
+  const completed = useFetch("completedGoals");
 
   return (
     <main>
-      <div className="px-5">
+      <div className="px-3 sm:px-5">
         <div className="flex lg:flex-row flex-col justify-between">
           <div className="leading-7">
             <h1 className="sm:text-4xl text-2xl font-semibold">Hello User, </h1>
-            <p className="pt-2">What are your goals for today? </p>
+            <p className="pt-2 sm:text-base text-sm">
+              What are your goals for today?{" "}
+            </p>
           </div>
           <div className="w-64 sm:w-fit">
             <div className="flex items-center justify-between py-3">
               <h3 className="flex items-center justify-center">
                 <FaArrowRight className="text-lg mr-2 animate-verticalBounce" />
-                <span className="text-background mr-2 font-semibold">
-                  Due
-                </span>
-               date?
+                <span className="text-background mr-2 font-semibold">Due</span>
+                date?
               </h3>
             </div>
             <Calendar onChange={handleDateChange} value={value} />
@@ -92,7 +82,7 @@ const Goals = () => {
               </div>
             </div>
             <div className="h-1 rounded-full bg-card w-full"></div>
-            <Card tasks={data}/>
+            <Card tasks={data} />
           </div>
 
           <div className="bg-slate-100 text-black w-full rounded-lg p-2">
@@ -106,20 +96,19 @@ const Goals = () => {
               </div>
             </div>
             <div className="h-1 rounded-full bg-black w-full"></div>
-            <Pending tasks={data} />
+            <Pending tasks={data} collectionName="goals" database="completedGoals"/>
           </div>
 
           <div className="bg-slate-50 text-black w-full rounded-lg p-2">
-            <div className="flex items-center">
-              <div className="flex items-center text-lg">
+            <div className="flex items-center text-lg">
                 <BsDot className="mr-1 text-5xl text-background" />
                 Achieved
-              </div>
               <div className="bg-gray-100 h-7 w-7 ml-2  text-background flex items-center justify-center text-lg font-semibold rounded-full">
                 0
               </div>
             </div>
             <div className="h-1 rounded-full bg-card w-full"></div>
+            <Completed tasks={completed.slice(0,5)} />
           </div>
         </div>
       </div>

@@ -23,7 +23,7 @@ const featureArray = [
 
 const Features = () => {
   return (
-    <main className="bg-background px-5 py-4 mx-auto container" id="features"
+    <main className="bg-background px-3 sm:px-5 py-4 mx-auto container" id="features"
     data-aos="zoom-in"
     >
       <div className="text-gray-100 lg:py-16 py-6 flex flex-col items-center justify-end text-center">

@@ -1,26 +1,46 @@
 import React from "react";
 import { getDateValue } from "../../Dashboard/Tabs/Goals";
-import { BsCheck2All } from "react-icons/bs";
+import { handleComplete } from "../../Hooks/complete/handleComplete";
 
-const Pending = ({tasks}:any) => {
-    console.log("data", tasks)
+const Pending = ({ tasks, collectionName, database }: any ) => {
   return (
-    <div className=" text-black py-3 gap-5 grid ">
+    <div className="text-black py-3 gap-5 grid">
       {tasks &&
-        tasks.map((tasks: any) => (
-          <div key={tasks.id} className="bg-white p-4 rounded-md">
+        tasks.map((task: any) => (
+          <div key={task.id} className="bg-white p-4 rounded-md">
             <div className="flex justify-between">
-              <div className=" bg-green-500 text-white rounded-sm text-xs w-fit p-1 flex justify-center items-center">
-                {tasks.priority}
+              <div
+                className={`text-white rounded-sm text-xs w-fit p-1 px-2 flex justify-center items-center ${
+                  task.priority === "Low" ? "bg-yellow-400" : "bg-green-500"
+                }`}
+              >
+                {task.priority}
               </div>
             </div>
-            <h2 className="py-3 font-semibold">{tasks.title}</h2>
-            <p className="text-xs">{tasks.description}</p>
-            <h2 className="py-4 text-sm">
-              Due date: {tasks.dueDate ? getDateValue(tasks.dueDate) : ""}
-            </h2>
-            <div className="flex border-b hover:border-b-2 cursor-pointer border-black justify-end items-center text-sm">
-              Mark as Completed <BsCheck2All className="ml-2 text-lg" />{" "}
+            <h2 className="py-5 font-semibold">{task.title}</h2>
+            <p className="text-sm">{task.description}</p>
+            <div className="flex justify-between pt-5">
+              <h2 className="text-base">
+                <span className="font-semibold">Due on: </span>{" "}
+                {task.dueDate ? getDateValue(task.dueDate) : ""}
+              </h2>
+              <div>
+                <input
+                  type="checkbox"
+                  className="h-6 w-6 rounded-md"
+                  onChange={() =>
+                    handleComplete(
+                      task.description,
+                      task.uid,
+                      task.title,
+                      task.priority,
+                      task.id,
+                      collectionName,
+                      database
+                    )
+                  }
+                />
+              </div>
             </div>
           </div>
         ))}
