@@ -10,7 +10,7 @@ type PaystackProps = {
 export const config: PaystackProps = {
   reference: new Date().getTime().toString(),
   email: "user@example.com",
-  amount: 500000,
+  amount: 300000,
   publicKey: process.env.NEXT_PUBLIC_PAYSTACK_PUBLIC_KEY,
 };
 
