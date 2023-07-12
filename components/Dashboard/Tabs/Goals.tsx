@@ -10,6 +10,7 @@ import Pending from "../../Micro/Card/Pending";
 import Card from "../../Micro/Card/Card";
 import Completed from "../../Micro/Card/Completed";
 import useFetch from "../../Hooks/fetch/useFetch";
+import Image from "next/image";
 
 export interface Task {
   id: string;
@@ -43,12 +44,13 @@ const Goals = () => {
   return (
     <main>
       <div className="px-3 sm:px-5">
-        <div className="flex lg:flex-row flex-col justify-between">
+      <div className="flex lg:flex-row flex-col items-center lg:items-start text-center lg:text-start justify-between max-w-full">
           <div className="leading-7">
-            <h1 className="sm:text-4xl text-2xl font-semibold">Hello User, </h1>
+            <h1 className="sm:text-4xl text-2xl font-semibold">Welcome back, </h1>
             <p className="pt-2 sm:text-base text-sm">
               What are your goals for today?{" "}
             </p>
+            <Image src="/assets/signup.jpg" alt="id" width={400} height={300}/>
           </div>
           <div className="w-64 sm:w-fit">
             <div className="flex items-center justify-between py-3">
