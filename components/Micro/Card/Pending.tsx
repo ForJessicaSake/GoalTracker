@@ -2,7 +2,7 @@ import React from "react";
 import { getDateValue } from "../../Dashboard/Tabs/Goals";
 import { handleComplete } from "../../Hooks/complete/handleComplete";
 
-const Pending = ({ tasks, collectionName, database }: any ) => {
+const Pending = ({ tasks, collectionName, database }: any) => {
   return (
     <div className="text-black py-3 gap-5 grid">
       {tasks &&
@@ -21,8 +21,7 @@ const Pending = ({ tasks, collectionName, database }: any ) => {
             <p className="text-sm">{task.description}</p>
             <div className="flex justify-between pt-5">
               <h2 className="text-base">
-                <span className="font-semibold">Due on: </span>{" "}
-                {task.dueDate ? getDateValue(task.dueDate) : ""}
+                Mark as completed
               </h2>
               <div>
                 <input
