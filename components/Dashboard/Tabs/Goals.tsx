@@ -130,17 +130,17 @@ const Goals = () => {
             </div>
           </div>
 
-          <div className="bg-black text-white w-full rounded-lg p-3">
+          <div className="bg-slate-100 text-black w-full rounded-lg p-2">
             <div className="flex items-center">
               <div className="flex items-center text-lg">
-                <BsDot className="mr-1 text-5xl text-white" />
+                <BsDot className="mr-1 text-5xl text-black" />
                 Pending
               </div>
               <div className="bg-white h-7 w-7 ml-2  text-black flex items-center justify-center text-lg font-semibold rounded-full">
                 0
               </div>
             </div>
-            <div className="h-1 rounded-full bg-white w-full"></div>
+            <div className="h-1 rounded-full bg-black w-full"></div>
             <div className=" text-black py-3 gap-5 grid ">
               {data &&
                 data.map((goals) => (
@@ -164,7 +164,7 @@ const Goals = () => {
             </div>
           </div>
 
-          <div className="bg-slate-50 text-black w-full rounded-lg p-3">
+          <div className="bg-slate-50 text-black w-full rounded-lg p-2">
             <div className="flex items-center">
               <div className="flex items-center text-lg">
                 <BsDot className="mr-1 text-5xl text-background" />
