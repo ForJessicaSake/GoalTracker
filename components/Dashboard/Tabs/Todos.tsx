@@ -77,12 +77,6 @@ const Todos = () => {
                 <span className="text-background mr-2 font-semibold">Due</span>
                 date?
               </h3>
-              <Button
-                onClick={() => setModal(true)}
-                className="bg-black text-white rounded-lg p-1 "
-              >
-                Add Todo
-              </Button>
             </div>
             <Calendar onChange={handleDateChange} value={value} className="" />
           </div>
