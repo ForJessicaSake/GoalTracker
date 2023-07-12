@@ -13,9 +13,10 @@ import { GiStairsGoal } from "react-icons/gi";
 import { BsPersonCheckFill } from "react-icons/bs";
 import Link from "next/link";
 import Home from "./Home";
-import { Logout } from "../../Utils/Firebase/Firebase";
+import { Logout, UseAuth } from "../../Utils/Firebase/Firebase";
 import { toast } from "react-toastify";
 import Button from "../../Micro/Button/Button";
+import { useAmp } from "next/amp";
 
 export type TabsTypes = {
   title: React.ReactNode;
@@ -101,6 +102,7 @@ const Tabs = () => {
     }, 500);
   };
 
+  const currentUser = UseAuth()
   return (
     <main className="2xl:container 2xl:mx-auto">
       <div className="items-center sm:p-5 p-3 flex justify-between border-b">
@@ -114,8 +116,8 @@ const Tabs = () => {
           <span className="pl-1 text-lg font-bold">GoalTracker</span>
         </Link>
 
-        <p className="md:block hidden text-3xl xl:text-2xl text-black">
-          <BsPersonCheckFill />
+        <p className="md:flex hidden items-center text-3xl xl:text-2xl text-black">
+          <BsPersonCheckFill /> <span className="text-sm ml-3">{currentUser?.email}</span>
         </p>
 
         <div

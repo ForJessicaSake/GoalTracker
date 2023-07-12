@@ -37,6 +37,7 @@ const Goals = () => {
     onChange(date);
   };
   const data = useFetch("goals");
+  console.log(data)
   const completed = useFetch("completedGoals");
 
   return (

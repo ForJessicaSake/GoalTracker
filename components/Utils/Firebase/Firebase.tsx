@@ -8,7 +8,7 @@ import {
   onAuthStateChanged,
   signOut,
   signInWithEmailAndPassword,
-  User,
+  User 
 } from "firebase/auth";
 import {
   signInWithPopup,
@@ -55,12 +55,13 @@ export function googleAuth() {
 
 //custom hook for signUp
 export function UseAuth() {
-  const [currentUser, setCurrentUser] = useState<User | null>(null);
+    const [currentUser, setCurrentUser] = useState<User | null>(null);
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (user: any) => {
       setCurrentUser(user);
     });
     return () => unsubscribe();
   }, []);
+
   return currentUser;
 }

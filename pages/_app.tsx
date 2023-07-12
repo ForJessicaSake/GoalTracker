@@ -5,13 +5,9 @@ import "aos/dist/aos.css";
 import React from "react";
 import { ToastContainer, Slide } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import { UseAuth } from "../components/Utils/Firebase/Firebase";
-import { setCookie } from "cookies-next";
+
 
 function MyApp({ Component, pageProps }: AppProps) {
-  const currentUser = UseAuth();
-  setCookie("useremail", currentUser?.email);
-
   React.useEffect(() => {
     AOS.init({ duration: 1900 });
     AOS.refresh();

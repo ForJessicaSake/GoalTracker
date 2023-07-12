@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { collection, onSnapshot } from "firebase/firestore";
-import { db } from "../../Utils/Firebase/Firebase";
+import { UseAuth, db } from "../../Utils/Firebase/Firebase";
 import { DueDate } from "../../Popup/Popup";
 
 export interface Task {
@@ -9,18 +9,22 @@ export interface Task {
   dueDate?: DueDate;
   priority?: string;
   description?: string;
-  uid?: string | null;
+  uid?: string;
 }
 
 const useFetch = (collectionName: string) => {
+  const currentUser = UseAuth();
   const [data, setData] = React.useState<Task[]>([]);
+
   React.useEffect(() => {
     onSnapshot(collection(db, collectionName), (snapshot) => {
-      setData(snapshot.docs.map((doc) => ({ ...doc.data(), id: doc?.id })));
+      setData(
+        snapshot.docs.map((doc) => ({ ...doc.data(), id: doc.id }))
+      );
     });
   }, []);
-
-  return data;
+  const filteredData = data.filter((item) => item.uid === currentUser?.uid);
+  return filteredData;
 };
 
 export default useFetch;
