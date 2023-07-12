@@ -19,6 +19,7 @@ import { FiEdit } from "react-icons/fi";
 import { toast } from "react-toastify";
 import { FaArrowRight } from "react-icons/fa";
 import Pending from "../../Micro/Card/Pending";
+import Card from "../../Micro/Card/Card";
 
 type goal = {
   name: string;
@@ -98,33 +99,7 @@ const Todos = () => {
               </div>
             </div>
             <div className="h-1 rounded-full bg-card w-full"></div>
-            <div className=" text-black py-3 gap-5 grid ">
-              {data &&
-                data.map((tasks) => (
-                  <div key={tasks.id} className="bg-white p-4 rounded-md">
-                    <div className="flex justify-between">
-                      <div className=" bg-green-500 text-white rounded-sm text-xs w-fit p-1 flex justify-center items-center">
-                        {tasks.priority}
-                      </div>
-                      <div
-                        className="text-lg cursor-pointer"
-                        onClick={() => handleDelete(tasks.id)}
-                      >
-                        <AiOutlineDelete />
-                      </div>
-                    </div>
-                    <h2 className="py-3 font-semibold">{tasks.title}</h2>
-                    <p className="text-xs">{tasks.description}</p>
-                    <h2 className="py-3 text-sm">
-                      Due date:{" "}
-                      {tasks.dueDate ? getDateValue(tasks.dueDate) : ""}
-                    </h2>
-                    <div className="flex justify-end pt-3 text-lg cursor-pointer">
-                      <FiEdit />
-                    </div>
-                  </div>
-                ))}
-            </div>
+            <Card tasks={data} />
           </div>
 
           <div className="bg-slate-100 text-black w-full rounded-lg p-2">
@@ -138,7 +113,7 @@ const Todos = () => {
               </div>
             </div>
             <div className="h-1 rounded-full bg-white w-full"></div>
-            <Pending tasks={data}/>
+            <Pending tasks={data} />
           </div>
 
           <div className="bg-slate-50 text-black w-full rounded-lg p-2">
