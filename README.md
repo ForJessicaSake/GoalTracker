@@ -1,34 +1,27 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# GoalTracker - a software that makes it simple for you and your goals.
 
-## Getting Started
+## About 
+GoalTracker is a progress tracking software that was developed using cool  web technologies, including Next.js, React-toastify, React-icons, Firebase, Tailwind, and AOS library.
 
-First, run the development server:
+## Technologies 
+- Next.js
+- Firebase
+- Tailwind
+- React-toastify
+- React-icons
 
-```bash
-npm run dev
-# or
-yarn dev
-```
+## 👋  Meet The Team
+- Jessica Joseph
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Roadmap 🔍
+Here are some of the links you should look out for to make navigation on the site smooth for you. 
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
+- Home
+- Signup
+- Login 
+- dashboard
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
+<!-- THE PRODUCT LINK -->
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+## Product 
+Production Website Link: (https://goaltracker.brimble.app/)
