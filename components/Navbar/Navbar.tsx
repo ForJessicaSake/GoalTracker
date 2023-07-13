@@ -67,7 +67,7 @@ const Navbar = () => {
         >
           <div className="flex flex-col h-96 items-center justify-between">
             <li>
-              <a href="/#features">features</a>
+              <a href="/#features">Features</a>
             </li>
             <li>
               <a href="/#testimonials">Testimonials</a>
