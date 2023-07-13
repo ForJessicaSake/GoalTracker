@@ -7,10 +7,9 @@ type PaystackProps = {
   amount: number;
   publicKey: string | any;
 };
-const email = getCookie("userEmail");
 export const config: PaystackProps = {
   reference: new Date().getTime().toString(),
-  email: email,
+  email: "goalTracker@gmail.com",
   amount: 500000,
   publicKey: process.env.NEXT_PUBLIC_PAYSTACK_PUBLIC_KEY,
 };

@@ -1,7 +1,7 @@
 import Image from "next/image";
 import React from "react";
 import Footer from "../../Footer/Footer";
-import { Card, Title, BarChart, Subtitle } from "@tremor/react";
+import { Card, BarChart } from "@tremor/react";
 import useFetch from "../../Hooks/fetch/useFetch";
 
 const Statistics = () => {

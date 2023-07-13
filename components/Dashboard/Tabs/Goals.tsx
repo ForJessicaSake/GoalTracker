@@ -15,9 +15,7 @@ import {
   FieldValue,
   addDoc,
   collection,
-  doc,
   serverTimestamp,
-  setDoc,
 } from "firebase/firestore";
 import { UseAuth, db } from "../../Utils/Firebase/Firebase";
 import { toast } from "react-toastify";

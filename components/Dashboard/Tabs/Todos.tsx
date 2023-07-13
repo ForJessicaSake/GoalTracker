@@ -7,17 +7,10 @@ import {
   FieldValue,
   addDoc,
   collection,
-  deleteDoc,
-  doc,
-  onSnapshot,
   serverTimestamp,
 } from "firebase/firestore";
 import { UseAuth, db } from "../../Utils/Firebase/Firebase";
 import PopUp from "../../Popup/Popup";
-import { Task, getDateValue } from "./Goals";
-import { AiOutlineDelete } from "react-icons/ai";
-import { BsCheck2All } from "react-icons/bs";
-import { FiEdit } from "react-icons/fi";
 import { toast } from "react-toastify";
 import { FaArrowRight } from "react-icons/fa";
 import Pending from "../../Micro/Card/Pending";
@@ -43,7 +36,6 @@ const Todos = () => {
   const handleModal = () => {
     () => setModal(false);
   };
-
   const data = useFetch("todos");
   const completed = useFetch("completedTodos");
   const [task, setTask] = React.useState<any>({
@@ -54,7 +46,6 @@ const Todos = () => {
     dueDate: value,
     uid: currentUser?.uid ?? null,
   });
-
   const handleDateChange = (date: any) => {
     onChange(date);
   };
@@ -77,12 +68,11 @@ const Todos = () => {
         toast.success("New todo successfully added!");
         setModal(false);
       }, 200);
-    } catch (err:any) {
-      console.log(err)
+    } catch (err: any) {
+      console.log(err);
       toast.error("Failed to set the new goal. Please try again.");
     }
   };
-
   return (
     <main>
       <div className="sm:px-5 px-3">

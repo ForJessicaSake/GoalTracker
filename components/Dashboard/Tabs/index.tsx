@@ -105,7 +105,6 @@ const Tabs = () => {
 
   const currentUser = UseAuth();
   setCookie("userEmail", currentUser?.email)
-  
   return (
     <main className="2xl:container 2xl:mx-auto">
       <div className="items-center sm:p-5 p-3 flex justify-between border-b">
