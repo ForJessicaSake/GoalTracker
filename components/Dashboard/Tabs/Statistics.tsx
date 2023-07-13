@@ -33,25 +33,23 @@ const Statistics = () => {
   };
   return (
     <main className="sm:px-5 px-3 ">
-      <h1 className="text-lg sm:text-2xl sm:flex hidden  font-semibold pb-4">
+      <h1 className="text-lg sm:text-2xl font-semibold pb-4">
         Complete statistics on all your goals
       </h1>
-      <section className=" justify-center overflow-x-auto sm:flex hidden  items-center sm:px-5 px-3 flex-col text-center">
-        <Card>
+      <section className="justify-center overflow-x-auto  items-center sm:px-5 px-3 flex-col text-center">
+        <Card className="overflow-x-scroll ">
           <BarChart
             className="mt-6"
             data={chartdata}
             index="name"
             categories={["Number of registered Tasks"]}
-            colors={["stone"]}
+            colors={["gray"]}
             valueFormatter={dataFormatter}
             yAxisWidth={48}
           />
         </Card>
       </section>
-      <section className="sm:hidden pb-5 ">
-        <p>Stats are only available on desktop screens</p>
-      </section>
+  
       <div className="border-t">
         <Footer />
       </div>
