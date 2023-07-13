@@ -33,7 +33,7 @@ const Home = () => {
         </div>
         <div className="grid grid-cols-2 h-[600px] sm:gap-8 gap-5 py-5">
           <div className="bg-black text-white w-full flex flex-col justify-center items-center  rounded-lg p-5">
-            <div className="bg-background h-20 w-20  text-white flex items-center justify-center text-2xl font-semibold rounded-full">
+            <div className="bg-card h-20 w-20  text-white flex items-center justify-center text-2xl font-semibold rounded-full">
               {goals.length}
             </div>
             <p className="py-2 sm:text-lg font-semibold">Goals</p>

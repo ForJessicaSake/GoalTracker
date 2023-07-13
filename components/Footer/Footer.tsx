@@ -26,7 +26,7 @@ const Footer = () => {
           <span className="pr-2">
             <CiMail />
           </span>
-          progressPal@gmail.com
+          goaltracker@gmail.com
         </li>
         <li className="flex items-center text-xl text-black">
           <PiGithubLogoLight />
@@ -36,15 +36,15 @@ const Footer = () => {
       </ul>
 
       <ul className="cursor-pointer">
-        <li>Home</li>
-        <li className="py-4">About Us</li>
-        <li>Features</li>
+        <li><Link href="/">Home</Link> </li>
+        <li className="py-4"><Link href="/">About Us</Link></li>
+        <li><Link href="/#features">Features</Link></li>
       </ul>
 
       <ul className="cursor-pointer">
-        <li>Testimonials</li>
-        <li className="py-4">Pricing</li>
-        <li>Reviews</li>
+        <li><Link href="/#testimonials">Testimonials</Link></li>
+        <li className="py-4"><Link href="/#pricing">Pricing</Link></li>
+        <li><Link href="/#testimonials">Reviews</Link></li>
       </ul>
       <ul className="cursor-pointer">
         <li>Terms of use</li>

@@ -8,7 +8,8 @@ const Statistics = () => {
   const goals = useFetch("goals");
   const completedGoals = useFetch("completedGoals");
   const todos = useFetch("todos");
-  const completedTodos = useFetch("completdTodo");
+  const completedTodos = useFetch("completedTodos");
+
   const chartdata = [
     {
       name: "Goals",
