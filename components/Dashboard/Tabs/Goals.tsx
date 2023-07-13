@@ -205,6 +205,7 @@ const Goals = () => {
       <PopUp
         modal={modal}
         handleModal={handleModal}
+        setModal={setModal}
         value={value}
         collectionName="goals"
         handleAdd={handleAdd}
