@@ -6,7 +6,6 @@ import { usePaystackPayment } from "react-paystack";
 import useFetch from "../../Hooks/fetch/useFetch";
 
 const Home = () => {
- 
   const goals = useFetch("goals");
   const completedGoals = useFetch("completedGoals");
   const todos = useFetch("todos");

@@ -17,6 +17,7 @@ import { Logout, UseAuth } from "../../Utils/Firebase/Firebase";
 import { toast } from "react-toastify";
 import Button from "../../Micro/Button/Button";
 import { useAmp } from "next/amp";
+import { setCookie } from "cookies-next";
 
 export type TabsTypes = {
   title: React.ReactNode;
@@ -102,7 +103,9 @@ const Tabs = () => {
     }, 500);
   };
 
-  const currentUser = UseAuth()
+  const currentUser = UseAuth();
+  setCookie("userEmail", currentUser?.email)
+  
   return (
     <main className="2xl:container 2xl:mx-auto">
       <div className="items-center sm:p-5 p-3 flex justify-between border-b">

@@ -15,6 +15,7 @@ import {
   GoogleAuthProvider,
   signInWithRedirect,
 } from "firebase/auth";
+import { setCookie } from "cookies-next";
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
