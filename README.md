@@ -1,4 +1,4 @@
-# Goal Tracker
+## Goal Tracker
 
 ## About 
 Goal Tracking made simple for you and your goals. GoalTracker is a progress tracking software that was developed using cool  web technologies, including Next.js, React-toastify, React-icons, Firebase, Tailwind, and AOS library.
