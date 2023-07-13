@@ -43,7 +43,7 @@ const Statistics = () => {
             data={chartdata}
             index="name"
             categories={["Number of registered Tasks"]}
-            colors={["black"]}
+            colors={["stone"]}
             valueFormatter={dataFormatter}
             yAxisWidth={48}
           />
