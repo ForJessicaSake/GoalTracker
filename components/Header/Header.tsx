@@ -12,7 +12,7 @@ const Header = () => {
       <div className="flex flex-col text-center justify-center items-center">
         <h1 className="text-4xl sm:text-5xl font-semibold max-w-2xl">
           Goal Tracking <span className="text-background">made simple </span>for
-          you and your team
+          you and your goals
         </h1>
         <p className="max-w-[510px] py-5">
           {" "}
