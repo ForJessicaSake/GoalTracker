@@ -19,10 +19,9 @@ const PopUp = ({
   handleAdd,
   id,
   collectionName,
+  value
 }: any) => {
   const currentUser = UseAuth();
-  const [value, onChange] = React.useState(new Date());
-
   const handleEdit = async (
     e: React.FormEvent,
     id: string,
@@ -76,7 +75,7 @@ const PopUp = ({
               <input
                 type="text"
                 required
-                placeholder="optional"
+                placeholder="add a description here"
                 value={task?.description}
                 onChange={(e) => {
                   setTask({ ...task, description: e.target.value });

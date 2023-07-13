@@ -49,10 +49,6 @@ const Goals = () => {
   const handleModal = () => {
     () => setModal(false);
   };
-
-  const handleDateChange = (date: any) => {
-    onChange(date);
-  };
   const data = useFetch("goals");
   const completed = useFetch("completedGoals");
 
@@ -65,6 +61,10 @@ const Goals = () => {
     dueDate: value,
     uid: currentUser?.uid ?? null,
   });
+
+  const handleDateChange = (date: any) => {
+    onChange(date);
+  };
 
   //handleAdd
   const handleAdd = async (e: React.FormEvent) => {
@@ -143,6 +143,7 @@ const Goals = () => {
               task={task}
               setTask={setTask}
               collectionName="goals"
+              value={value}
             />
           </div>
 

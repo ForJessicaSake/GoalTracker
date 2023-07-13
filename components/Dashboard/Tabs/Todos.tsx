@@ -40,14 +40,12 @@ const Todos = () => {
   const [value, onChange] = React.useState(new Date());
   const currentUser = UseAuth();
   const [modal, setModal] = React.useState(false);
-
   const handleModal = () => {
     () => setModal(false);
   };
 
   const data = useFetch("todos");
   const completed = useFetch("completedTodos");
-
   const [task, setTask] = React.useState<any>({
     title: "",
     description: "",
@@ -56,6 +54,7 @@ const Todos = () => {
     dueDate: value,
     uid: currentUser?.uid ?? null,
   });
+
   const handleDateChange = (date: any) => {
     onChange(date);
   };
@@ -78,7 +77,8 @@ const Todos = () => {
         toast.success("New todo successfully added!");
         setModal(false);
       }, 200);
-    } catch (err) {
+    } catch (err:any) {
+      console.log(err)
       toast.error("Failed to set the new goal. Please try again.");
     }
   };
@@ -133,6 +133,7 @@ const Todos = () => {
               setModal={setModal}
               handleModal={handleModal}
               handleAdd={handleAdd}
+              value={value}
               task={task}
               setTask={setTask}
               collectionName="todos"
@@ -180,6 +181,7 @@ const Todos = () => {
         setModal={setModal}
         handleModal={handleModal}
         handleAdd={handleAdd}
+        value={value}
         task={task}
         setTask={setTask}
         collectionName="todos"

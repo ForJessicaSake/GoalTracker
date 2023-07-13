@@ -5,7 +5,7 @@ import { getDateValue } from "../../Dashboard/Tabs/Goals";
 import { handleDelete } from "../../Hooks/delete/handleDelete";
 import PopUp from "../../Popup/Popup";
 
-const Card = ({ tasks, handleAdd, task, setTask, collectionName }: any) => {
+const Card = ({ tasks, handleAdd, task, setTask, collectionName, value }: any) => {
   const [modal, setModal] = React.useState(false);
   const handleModal = () => setModal(false);
   const [edit, setEdit] = React.useState(false);
@@ -56,6 +56,7 @@ const Card = ({ tasks, handleAdd, task, setTask, collectionName }: any) => {
         setModal={setModal}
         handleAdd={handleAdd}
         task={task}
+        value={value}
         setTask={setTask}
         edit={edit}
         id={id}
