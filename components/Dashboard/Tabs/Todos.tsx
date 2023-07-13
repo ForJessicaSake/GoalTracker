@@ -5,12 +5,14 @@ import "react-calendar/dist/Calendar.css";
 import { BsDot, BsPlusLg } from "react-icons/bs";
 import {
   FieldValue,
+  addDoc,
   collection,
   deleteDoc,
   doc,
   onSnapshot,
+  serverTimestamp,
 } from "firebase/firestore";
-import { db } from "../../Utils/Firebase/Firebase";
+import { UseAuth, db } from "../../Utils/Firebase/Firebase";
 import PopUp from "../../Popup/Popup";
 import { Task, getDateValue } from "./Goals";
 import { AiOutlineDelete } from "react-icons/ai";
@@ -35,25 +37,49 @@ type goal = {
 };
 
 const Todos = () => {
-  const [modal, setModal] = React.useState(false);
   const [value, onChange] = React.useState(new Date());
-  const handleDateChange = (date: any) => {
-    onChange(date);
+  const currentUser = UseAuth();
+  const [modal, setModal] = React.useState(false);
+
+  const handleModal = () => {
+    () => setModal(false);
   };
 
   const data = useFetch("todos");
   const completed = useFetch("completedTodos");
 
-  //delete frunctionality -goals(collection name)
-  const handleDelete = async (id: string) => {
+  const [task, setTask] = React.useState<any>({
+    title: "",
+    description: "",
+    priority: "Low",
+    time: serverTimestamp(),
+    dueDate: value,
+    uid: currentUser?.uid ?? null,
+  });
+  const handleDateChange = (date: any) => {
+    onChange(date);
+  };
+
+  //handleAdd
+  const handleAdd = async (e: React.FormEvent) => {
+    e.preventDefault();
     try {
-      const docRef = doc(db, "todos", id);
-      await deleteDoc(docRef);
+      const collectionRef = collection(db, "todos");
+      const payload = {
+        uid: currentUser?.uid,
+        time: serverTimestamp(),
+        description: task?.description,
+        title: task?.title,
+        priority: task?.priority,
+        dueDate: value,
+      };
+      await addDoc(collectionRef, payload);
       setTimeout(() => {
-        toast.success("task deleted successfully!");
-      });
-    } catch (error) {
-      toast.error("An unexpected error occured");
+        toast.success("New todo successfully added!");
+        setModal(false);
+      }, 200);
+    } catch (err) {
+      toast.error("Failed to set the new goal. Please try again.");
     }
   };
 
@@ -101,7 +127,16 @@ const Todos = () => {
               </div>
             </div>
             <div className="h-1 rounded-full bg-card w-full"></div>
-            <Card tasks={data} />
+            <Card
+              tasks={data}
+              modal={modal}
+              setModal={setModal}
+              handleModal={handleModal}
+              handleAdd={handleAdd}
+              task={task}
+              setTask={setTask}
+              collectionName="todos"
+            />
           </div>
 
           <div className="bg-slate-100 text-black w-full rounded-lg p-2">
@@ -142,9 +177,10 @@ const Todos = () => {
       </div>
       <PopUp
         modal={modal}
-        handleModal={() => setModal(false)}
-        value={value}
-        collectionName="todos"
+        handleModal={handleModal}
+        handleAdd={handleAdd}
+        task={task}
+        setTask={setTask}
       />
     </main>
   );

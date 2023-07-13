@@ -12,11 +12,22 @@ import Completed from "../../Micro/Card/Completed";
 import useFetch from "../../Hooks/fetch/useFetch";
 import Image from "next/image";
 import Button from "../../Micro/Button/Button";
+import {
+  FieldValue,
+  addDoc,
+  collection,
+  doc,
+  serverTimestamp,
+  setDoc,
+} from "firebase/firestore";
+import { UseAuth, db } from "../../Utils/Firebase/Firebase";
+import { toast } from "react-toastify";
 
 export interface Task {
   id: string;
   title?: string;
-  dueDate?: DueDate;
+  dueDate?: any;
+  time?: FieldValue;
   priority?: string;
   description?: string;
   uid?: string | null;
@@ -33,25 +44,85 @@ export const getDateValue = (value: DueDate) => {
 };
 
 const Goals = () => {
-  const [modal, setModal] = React.useState(false);
   const [value, onChange] = React.useState(new Date());
+  const currentUser = UseAuth();
+  const [modal, setModal] = React.useState(false);
+  const handleModal = () => {
+    () => setModal(false);
+  };
+
   const handleDateChange = (date: any) => {
     onChange(date);
   };
   const data = useFetch("goals");
-  console.log(data)
   const completed = useFetch("completedGoals");
 
+  //tasks
+  const [task, setTask] = React.useState<any>({
+    title: "",
+    description: "",
+    priority: "Low",
+    time: serverTimestamp(),
+    dueDate: value,
+    uid: currentUser?.uid ?? null,
+  });
+
+  //handleAdd
+  const handleAdd = async (e: React.FormEvent) => {
+    e.preventDefault();
+    try {
+      const collectionRef = collection(db, "goals");
+      const payload = {
+        uid: currentUser?.uid,
+        time: serverTimestamp(),
+        description: task?.description,
+        title: task?.title,
+        priority: task?.priority,
+        dueDate: value,
+      };
+      await addDoc(collectionRef, payload);
+      setTimeout(() => {
+        toast.success("New goal successfully set!");
+        setModal(false);
+      }, 200);
+    } catch (err) {
+      toast.error("Failed to set the new goal. Please try again.");
+    }
+  };
+
+  // handleEdit
+  const handleEdit = async (e: React.FormEvent, id: string) => {
+    e.preventDefault();
+    try {
+      const docRef = await doc(db, "notes", id);
+      const payload = {
+        uid: currentUser?.uid,
+        time: serverTimestamp(),
+        description: task.description,
+        title: task.title,
+        priority: task.priority,
+        dueDate: value,
+      };
+      const data = await setDoc(docRef, payload, {
+        merge: true,
+      });
+      setTask(data);
+    } catch (error) {
+      console.log("an error occured");
+    }
+  };
   return (
     <main>
       <div className="px-3 sm:px-5">
-      <div className="flex lg:flex-row flex-col items-center lg:items-start text-center lg:text-start justify-between max-w-full">
+        <div className="flex lg:flex-row flex-col items-center lg:items-start text-center lg:text-start justify-between max-w-full">
           <div className="leading-7">
-            <h1 className="sm:text-4xl text-2xl font-semibold">Welcome back, </h1>
+            <h1 className="sm:text-4xl text-2xl font-semibold">
+              Welcome back,{" "}
+            </h1>
             <p className="py-2 sm:text-base text-sm">
               What are your goals for today?{" "}
             </p>
-            <Image src="/assets/signup.jpg" alt="id" width={400} height={300}/>
+            <Image src="/assets/signup.jpg" alt="id" width={400} height={300} />
           </div>
           <div className="w-64 sm:w-fit">
             <div className="flex items-center justify-between py-3">
@@ -86,7 +157,15 @@ const Goals = () => {
               </div>
             </div>
             <div className="h-1 rounded-full bg-card w-full"></div>
-            <Card tasks={data} />
+            <Card
+              tasks={data}
+              modal={modal}
+              handleModal={handleModal}
+              handleAdd={handleAdd}
+              task={task}
+              setTask={setTask}
+              collectionName="goals"
+            />
           </div>
 
           <div className="bg-slate-100 text-black w-full rounded-lg p-2">
@@ -100,19 +179,23 @@ const Goals = () => {
               </div>
             </div>
             <div className="h-1 rounded-full bg-black w-full"></div>
-            <Pending tasks={data} collectionName="goals" database="completedGoals"/>
+            <Pending
+              tasks={data}
+              collectionName="goals"
+              database="completedGoals"
+            />
           </div>
 
           <div className="bg-slate-50 text-black w-full rounded-lg p-2">
             <div className="flex items-center text-lg">
-                <BsDot className="mr-1 text-5xl text-background" />
-                Achieved
+              <BsDot className="mr-1 text-5xl text-background" />
+              Achieved
               <div className="bg-gray-100 h-7 w-7 ml-2  text-background flex items-center justify-center text-lg font-semibold rounded-full">
                 0
               </div>
             </div>
             <div className="h-1 rounded-full bg-card w-full"></div>
-            <Completed tasks={completed.slice(0,5)} />
+            <Completed tasks={completed.slice(0, 5)} />
           </div>
         </div>
       </div>
@@ -121,9 +204,12 @@ const Goals = () => {
       </div>
       <PopUp
         modal={modal}
-        handleModal={() => setModal(false)}
+        handleModal={handleModal}
         value={value}
         collectionName="goals"
+        handleAdd={handleAdd}
+        task={task}
+        setTask={setTask}
       />
     </main>
   );
