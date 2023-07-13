@@ -33,9 +33,10 @@ const Statistics = () => {
   };
   return (
     <main className="sm:px-5 px-3 ">
-      <h1 className="text-xl sm:text-2xl font-semibold pb-4">
-        Stats on all your goals
+      <h1 className="text-xl sm:text-4xl font-semibold">
+      Welcome back,
       </h1>
+      <p className="py-2">Check your goal status and more...</p>
       <section className="justify-center items-center sm:px-5 px-3 flex-col text-center">
         <Card className="overflow-x-scroll">
           <BarChart
