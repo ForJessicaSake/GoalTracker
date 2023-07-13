@@ -177,6 +177,7 @@ const Todos = () => {
       </div>
       <PopUp
         modal={modal}
+        setModal={setModal}
         handleModal={handleModal}
         handleAdd={handleAdd}
         task={task}
