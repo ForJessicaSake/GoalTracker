@@ -68,8 +68,7 @@ const Todos = () => {
         toast.success("New todo successfully added!");
         setModal(false);
       }, 200);
-    } catch (err: any) {
-      console.log(err);
+    } catch (err) {
       toast.error("Failed to set the new goal. Please try again.");
     }
   };

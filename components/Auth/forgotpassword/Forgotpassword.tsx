@@ -14,7 +14,7 @@ const Forgotpassword = () => {
             width={34}
             height={34}
           />
-          <span className="pl-1 text-lg font-bold">progressPal</span>
+          <span className="pl-1 text-lg font-bold">GoalTracker</span>
         </Link>{" "}
         <form
           className=" flex flex-col h-full justify-center"

@@ -35,7 +35,6 @@ const Login = () => {
         router.push("/dashboard");
       }, 2500);
     } catch (error: any) {
-      console.log(error.code);
       if (error.code === "auth/email-already-in-use") {
         toast.error("Email already in use, kindly log in");
       } else if (error.code === "auth/user-not-found") {

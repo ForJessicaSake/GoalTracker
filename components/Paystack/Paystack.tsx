@@ -1,7 +1,7 @@
 import { toast } from "react-toastify";
 
 type PaystackProps = {
-  reference: any;
+  reference: string;
   email: string;
   amount: number;
   publicKey: string | any;

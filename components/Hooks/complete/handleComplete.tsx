@@ -24,7 +24,7 @@ export const handleComplete = async (
     const docRef = doc(db, collectionName, id);
     await deleteDoc(docRef);
     toast.success("Yay, you rock!")
-  } catch (err: any) {
+  } catch (err) {
     toast.error("An unexpected error occurred")
   }
 };

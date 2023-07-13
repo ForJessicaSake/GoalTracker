@@ -82,8 +82,8 @@ const Goals = () => {
         toast.success("New goal successfully set!");
         setModal(false);
       }, 200);
-    } catch (err: any) {
-      toast.error(err);
+    } catch (err) {
+      toast.error("An unexpected error occured");
     }
   };
 
