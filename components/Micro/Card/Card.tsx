@@ -8,6 +8,9 @@ import PopUp from "../../Popup/Popup";
 const Card = ({ tasks, handleAdd, task, setTask, collectionName }: any) => {
   const [modal, setModal] = React.useState(false);
   const handleModal = () => setModal(false);
+  const [edit, setEdit] = React.useState(false);
+
+  let [id, setId] = React.useState("")
   return (
     <div className=" text-black py-3 gap-5 grid ">
       {tasks &&
@@ -39,8 +42,10 @@ const Card = ({ tasks, handleAdd, task, setTask, collectionName }: any) => {
               <FiEdit
                 className=" text-lg cursor-pointer"
                 onClick={() => {
-                  setModal(true);
-                  setTask(goals);
+                  setModal(true)
+                  setTask(goals)
+                  setEdit(true)
+                  setId(goals.id)
                 }}
               />
             </div>
@@ -52,6 +57,9 @@ const Card = ({ tasks, handleAdd, task, setTask, collectionName }: any) => {
         handleAdd={handleAdd}
         task={task}
         setTask={setTask}
+        edit={edit}
+        id={id}
+        collectionName={collectionName}
       />
     </div>
   );

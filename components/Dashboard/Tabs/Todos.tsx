@@ -182,6 +182,7 @@ const Todos = () => {
         handleAdd={handleAdd}
         task={task}
         setTask={setTask}
+        collectionName="todos"
       />
     </main>
   );

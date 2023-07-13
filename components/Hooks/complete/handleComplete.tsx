@@ -23,7 +23,8 @@ export const handleComplete = async (
     await addDoc(collectionRef, payload);
     const docRef = doc(db, collectionName, id);
     await deleteDoc(docRef);
+    toast.success("Yay, you rock!")
   } catch (err: any) {
-    toast.error(err);
+    toast.error("An unexpected error occurred")
   }
 };

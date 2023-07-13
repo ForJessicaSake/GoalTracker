@@ -11,7 +11,6 @@ import Card from "../../Micro/Card/Card";
 import Completed from "../../Micro/Card/Completed";
 import useFetch from "../../Hooks/fetch/useFetch";
 import Image from "next/image";
-import Button from "../../Micro/Button/Button";
 import {
   FieldValue,
   addDoc,
@@ -85,32 +84,11 @@ const Goals = () => {
         toast.success("New goal successfully set!");
         setModal(false);
       }, 200);
-    } catch (err) {
-      toast.error("Failed to set the new goal. Please try again.");
+    } catch (err: any) {
+      toast.error(err);
     }
   };
 
-  // handleEdit
-  const handleEdit = async (e: React.FormEvent, id: string) => {
-    e.preventDefault();
-    try {
-      const docRef = await doc(db, "notes", id);
-      const payload = {
-        uid: currentUser?.uid,
-        time: serverTimestamp(),
-        description: task.description,
-        title: task.title,
-        priority: task.priority,
-        dueDate: value,
-      };
-      const data = await setDoc(docRef, payload, {
-        merge: true,
-      });
-      setTask(data);
-    } catch (error) {
-      console.log("an error occured");
-    }
-  };
   return (
     <main>
       <div className="px-3 sm:px-5">
