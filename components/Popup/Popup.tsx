@@ -7,9 +7,9 @@ export type DueDate = {
   nanoseconds: number;
 };
 
-const PopUp = ({ modal, handleModal, task, setTask, handleAdd }: any) => {
+const PopUp = ({ modal, handleModal, setModal task, setTask, handleAdd }: any) => {
   return (
-    <Modal open={modal} onClose={handleModal} className="bg-btnHoverBlack ">
+    <Modal open={modal} onClose={()=>setModal(false)} className="bg-btnHoverBlack ">
       <ModalContent className="text-black bg-slate-50 overflow-y-scroll mx-3 p-5 md:p-0 rounded-2xl w-[430px] h-[65vh] 2xl:h-fit max-w-5xltext-xs md:text-sm flex flex-col justify-between">
         <section>
           <form onSubmit={handleAdd} className="flex flex-col lg:p-5 ">
