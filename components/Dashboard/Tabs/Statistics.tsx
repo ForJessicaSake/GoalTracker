@@ -1,35 +1,56 @@
 import Image from "next/image";
 import React from "react";
-import Button from "../../Micro/Button/Button";
 import Footer from "../../Footer/Footer";
-import { onSuccess, onClose, config } from "../../Paystack/Paystack";
-import { usePaystackPayment } from "react-paystack";
-
+import { Card, Title, BarChart, Subtitle } from "@tremor/react";
+import useFetch from "../../Hooks/fetch/useFetch";
 
 const Statistics = () => {
-  const initializePayment = usePaystackPayment(config);
-  return (
-    <main className="">
-      <section className="flex justify-center items-center sm:px-5 px-3 flex-col text-center">
-        <div>
-          <Image src="/assets/download.png" alt="" width={120} height={120} />
-        </div>
-        <div>
-          <p className="text-xl">We are still</p>
-          <h1 className="lg:text-5xl sm:text-4xl text-3xl  font-bold">
-            Cooking this feature!
-          </h1>
-          <p className="py-2 text-lg">
-            A launch would happen very soon, upgrade to Pro to get notified!
-          </p>
+  const goals = useFetch("goals");
+  const completedGoals = useFetch("completedGoals");
+  const todos = useFetch("todos");
+  const completedTodos = useFetch("completdTodo");
+  const chartdata = [
+    {
+      name: "Goals",
+      "Number of registered Tasks": goals.length,
+    },
+    {
+      name: "Tasks",
+      "Number of registered Tasks": todos.length,
+    },
+    {
+      name: "Completed Goals",
+      "Number of registered Tasks": completedGoals.length,
+    },
+    {
+      name: "Completed Tasks",
+      "Number of registered Tasks": completedTodos.length,
+    },
+  ];
 
-          <Button
-            className="bg-black animate-pulse text-lg my-3 mb-5 text-white w-40 font-semibold rounded-full"
-            onClick={() => initializePayment(onSuccess, onClose)}
-          >
-            Upgrade Now
-          </Button>
-        </div>
+  const dataFormatter = (number: number) => {
+    return Intl.NumberFormat("us").format(number).toString();
+  };
+  return (
+    <main className="sm:px-5 px-3 ">
+      <h1 className="text-lg sm:text-2xl sm:flex hidden  font-semibold pb-4">
+        Complete statistics on all your goals
+      </h1>
+      <section className=" justify-center overflow-x-auto sm:flex hidden  items-center sm:px-5 px-3 flex-col text-center">
+        <Card>
+          <BarChart
+            className="mt-6"
+            data={chartdata}
+            index="name"
+            categories={["Number of registered Tasks"]}
+            colors={["black"]}
+            valueFormatter={dataFormatter}
+            yAxisWidth={48}
+          />
+        </Card>
+      </section>
+      <section className="sm:hidden pb-5 ">
+        <p>Stats are only available on desktop screens</p>
       </section>
       <div className="border-t">
         <Footer />
