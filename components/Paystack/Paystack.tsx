@@ -3,7 +3,7 @@ import { getCookie } from "cookies-next";
 
 type PaystackProps = {
   reference: any;
-  email: any;
+  email: string;
   amount: number;
   publicKey: string | any;
 };
