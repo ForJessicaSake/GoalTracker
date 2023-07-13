@@ -33,11 +33,11 @@ const Statistics = () => {
   };
   return (
     <main className="sm:px-5 px-3 ">
-      <h1 className="text-lg sm:text-2xl font-semibold pb-4">
-        Complete statistics on all your goals
+      <h1 className="text-xl sm:text-2xl font-semibold pb-4">
+        Stats on all your goals
       </h1>
-      <section className="justify-center overflow-x-auto  items-center sm:px-5 px-3 flex-col text-center">
-        <Card className="overflow-x-scroll ">
+      <section className="justify-center items-center sm:px-5 px-3 flex-col text-center">
+        <Card className="overflow-x-scroll">
           <BarChart
             className="mt-6"
             data={chartdata}
