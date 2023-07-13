@@ -48,7 +48,7 @@ const Card = ({ tasks, handleAdd, task, setTask, collectionName }: any) => {
         ))}
       <PopUp
         modal={modal}
-        handleModal={handleModal}
+        setModal={setModal}
         handleAdd={handleAdd}
         task={task}
         setTask={setTask}
