@@ -8,10 +8,9 @@ import Pricing from "../components/Pricing/Pricing";
 import Head from "next/head";
 
 const Home = () => {
-
   return (
     <div>
-         <Head>
+      <Head>
         <title>GoalTracker</title>
         <meta
           name="description"
@@ -19,10 +18,7 @@ const Home = () => {
         />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/logo.svg" />
-        <meta
-          property="og:url"
-          content=""
-        />
+        <meta property="og:url" content="" />
         <meta property="og:type" content="website" />
         <meta property="og:title" content="GoalTracker" />
         <meta
@@ -35,7 +31,10 @@ const Home = () => {
         />
 
         <meta name="twitter:card" content="summary_large_image" />
-        <meta property="twitter:domain" content="https://goaltracker.brimble.app/assets/SEO.png" />
+        <meta
+          property="twitter:domain"
+          content="https://goaltracker.brimble.app/assets/SEO.png"
+        />
         <meta
           property="twitter:url"
           content="https://goaltracker.brimble.app/"
@@ -52,11 +51,11 @@ const Home = () => {
       </Head>
       <main className="overflow-x-hidden">
         <Navbar />
-        <Header/>
-        <Features/>
-        <Testimonial/>
-        <Cta/>
-        <Pricing/>
+        <Header />
+        <Features />
+        <Testimonial />
+        <Cta />
+        <Pricing />
         <Footer />
       </main>
     </div>

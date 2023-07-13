@@ -1,7 +1,5 @@
 import React from "react";
-import Button from "../Micro/Button/Button";
 import { BsCheck2All } from "react-icons/bs";
-import Cta from "../Cta/Cta";
 
 const pricingObject = [
   {

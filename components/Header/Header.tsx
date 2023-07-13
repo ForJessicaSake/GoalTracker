@@ -2,13 +2,9 @@ import React from "react";
 import Button from "../Micro/Button/Button";
 import { CiPlay1 } from "react-icons/ci";
 import Link from "next/link";
-import { UseAuth } from "../Utils/Firebase/Firebase";
-
 
 const Header = () => {
- 
-
-  return (
+ return (
     <header
       className="mx-auto container px-3 sm:px-5 py-12 lg:py-20"
       data-aos="fade-up"

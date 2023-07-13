@@ -16,7 +16,6 @@ import Home from "./Home";
 import { Logout, UseAuth } from "../../Utils/Firebase/Firebase";
 import { toast } from "react-toastify";
 import Button from "../../Micro/Button/Button";
-import { useAmp } from "next/amp";
 import { setCookie } from "cookies-next";
 
 export type TabsTypes = {

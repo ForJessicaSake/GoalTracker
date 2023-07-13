@@ -23,7 +23,7 @@ const Navbar = () => {
           </Link>
           <ul className="flex items-center justify-between w-9/12 pl-4 text-gray-600 cursor-pointer">
             <li>
-              <a href="/#features">features</a>
+              <a href="/#features">Features</a>
             </li>
             <li>
               <a href="/#testimonials">Testimonials</a>
