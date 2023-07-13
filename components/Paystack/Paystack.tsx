@@ -1,5 +1,4 @@
 import { toast } from "react-toastify";
-import { getCookie } from "cookies-next";
 
 type PaystackProps = {
   reference: any;
