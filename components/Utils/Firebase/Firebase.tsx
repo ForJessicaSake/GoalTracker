@@ -8,13 +8,10 @@ import {
   onAuthStateChanged,
   signOut,
   signInWithEmailAndPassword,
-  User 
+  User,
+  updatePassword,
 } from "firebase/auth";
-import {
-  signInWithPopup,
-  GoogleAuthProvider,
-  signInWithRedirect,
-} from "firebase/auth";
+import { signInWithPopup, GoogleAuthProvider } from "firebase/auth";
 import { setCookie } from "cookies-next";
 
 // Your web app's Firebase configuration
@@ -32,8 +29,7 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 export const db = getFirestore(app);
 export default getFirestore(app);
-
-const auth = getAuth();
+const auth = getAuth(app);
 
 //signup reusable function module
 export function signUp(email: string, password: string) {
@@ -54,9 +50,15 @@ export function googleAuth() {
   // return signInWithRedirect(auth, provider);
 }
 
+// export function ResetPassword(newPassword: string) {
+//   if (current) {
+//     return updatePassword(current, newPassword);
+//   }
+// }
+
 //custom hook for signUp
 export function UseAuth() {
-    const [currentUser, setCurrentUser] = useState<User | null>(null);
+  const [currentUser, setCurrentUser] = useState<User | null>(null);
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (user: any) => {
       setCurrentUser(user);

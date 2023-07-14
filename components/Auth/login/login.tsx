@@ -103,9 +103,9 @@ const Login = () => {
             <Button className="bg-card hover:bg-background text-white w-40 rounded-lg" disabled={isLoading.emailAuth}>
               LOGIN
             </Button>
-            <Link href="/forgotpassword" className="lg:py-0 pt-3">
+            {/* <Link href="/forgotpassword" className="lg:py-0 pt-3">
               Forgot your password?
-            </Link>
+            </Link> */}
           </div>
           <Link
             href="/signup"
