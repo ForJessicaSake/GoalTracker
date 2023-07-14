@@ -6,6 +6,6 @@ export const handleDelete = async (id: string, collectionName: string) => {
   const docRef = doc(db, collectionName, id);
   await deleteDoc(docRef);
   setTimeout(() => {
-    toast.success("goal deleted successfully!");
+    toast.success("deleted successfully!");
   });
 };
