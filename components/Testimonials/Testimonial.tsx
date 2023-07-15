@@ -41,7 +41,7 @@ const Testimonial = () => {
         <h1 className="sm:text-4xl font-semibold text-3xl">Loved by People Worldwide.</h1>
         <p className="max-w-2xl py-3">
           Our software is so simple that people can't help but fall in love with
-          it. Simplicity is easy when you know exaxtly what your end users want.
+          it. Simplicity is easy when you know exactly what your end users want.
         </p>
       </div>
       <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-10 place-items-center pt-5 lg:pt-10">
