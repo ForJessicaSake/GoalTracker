@@ -8,6 +8,7 @@ GoalTracker is a progress tracking software that was developed using cool  web t
 - TypeScript
 - Firebase
 - Tailwind
+- AOS Libary
 - React-toastify
 - React-icons
 
