@@ -20,13 +20,13 @@ import Completed from "../../Micro/Card/Completed";
 import Image from "next/image";
 import Button from "../../Micro/Button/Button";
 
-type goal = {
-  name: string;
-  description: string;
-  priority: string;
-  time: FieldValue;
-  dueDate: string;
-  uid: string | null;
+type Task = {
+  title?: string;
+  description?: string;
+  priority?: string;
+  time?: FieldValue;
+  dueDate?: string;
+  uid?: string | null;
 };
 
 const Todos = () => {
@@ -38,7 +38,7 @@ const Todos = () => {
   };
   const data = useFetch("todos");
   const completed = useFetch("completedTodos");
-  const [task, setTask] = React.useState<any>({
+  const [task, setTask] = React.useState<Task>({
     title: "",
     description: "",
     priority: "Low",
