@@ -51,7 +51,7 @@ const Goals = () => {
   const completed = useFetch("completedGoals");
 
   //tasks
-  const [task, setTask] = React.useState<Task>({
+  const [task, setTask] = React.useState<any>({
     title: "",
     description: "",
     priority: "Low",
