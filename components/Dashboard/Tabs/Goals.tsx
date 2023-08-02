@@ -21,7 +21,7 @@ import { UseAuth, db } from "../../Utils/Firebase/Firebase";
 import { toast } from "react-toastify";
 
 export interface Task {
-  id: string;
+  id?: string;
   title?: string;
   dueDate?: any;
   time?: FieldValue;
@@ -51,7 +51,7 @@ const Goals = () => {
   const completed = useFetch("completedGoals");
 
   //tasks
-  const [task, setTask] = React.useState<any>({
+  const [task, setTask] = React.useState<Task>({
     title: "",
     description: "",
     priority: "Low",
