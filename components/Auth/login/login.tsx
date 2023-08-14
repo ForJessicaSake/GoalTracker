@@ -51,7 +51,7 @@ const Login = () => {
     setIsLoading({...isLoading, googleAuth:true})
     googleAuth().then(() => {
       setTimeout(() => {
-        toast.success("Welcome to ProgressPal");
+        toast.success("Welcome to Goal Tracker");
         router.push("/dashboard");
       }, 2500);
       setIsLoading({...isLoading, googleAuth:false})

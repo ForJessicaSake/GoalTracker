@@ -19,7 +19,7 @@ const PopUp = ({
   handleAdd,
   id,
   collectionName,
-  value
+  value,
 }: any) => {
   const currentUser = UseAuth();
   const handleEdit = async (
@@ -41,11 +41,11 @@ const PopUp = ({
       const data = await setDoc(docRef, payload, {
         merge: true,
       });
-      toast.success("Updated successfully!")
-      setModal(false)
+      toast.success("Updated successfully!");
+      setModal(false);
       setTask(data);
     } catch (error) {
-      toast.error("An unexpected error occurred.")
+      toast.error("An unexpected error occurred.");
     }
   };
   return (
@@ -62,7 +62,7 @@ const PopUp = ({
               <input
                 type="text"
                 required
-                placeholder="Enter your new goal here"
+                placeholder="Enter a title here"
                 value={task?.title}
                 onChange={(e) => {
                   setTask({ ...task, title: e.target.value });
@@ -106,8 +106,8 @@ const PopUp = ({
             ) : (
               <button
                 className="bg-card rounded-full w-40 p-2 my-8 text-white"
-                onClick={(e: React.FormEvent) =>{
-                  handleEdit(e, id, collectionName)
+                onClick={(e: React.FormEvent) => {
+                  handleEdit(e, id, collectionName);
                 }}
               >
                 Update

@@ -9,7 +9,7 @@ const featureArray = [
   },
   {
     name: "Journal",
-    deets: `Keep track of everything you would like to make notes of in one place by using progressPal`,
+    deets: `Keep track of everything you would like to make notes of in one place by using Goal Tracker`,
   },
   {
     name: "Reporting",

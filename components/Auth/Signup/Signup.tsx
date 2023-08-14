@@ -28,7 +28,7 @@ const Signup = () => {
     if (isValidEmail) {
       try {
         await signUp(register.email, register.password);
-        toast.success("Welcome to progressPal!");
+        toast.success("Welcome!");
         setTimeout(() => {
           router.push("/login");
         }, 2500);
@@ -53,7 +53,7 @@ const Signup = () => {
     setIsLoading({...isLoading, googleAuth:true})
     googleAuth().then(() => {
       setTimeout(() => {
-        toast.success("Welcome to ProgressPal");
+        toast.success("Welcome to Goal Tracker");
         router.push("/dashboard");
       }, 2500);
       setIsLoading({...isLoading, googleAuth:true})
