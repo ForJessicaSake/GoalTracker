@@ -100,7 +100,11 @@ const Tabs = () => {
   };
 
   const currentUser = UseAuth();
-  setCookie("userEmail", currentUser?.email)
+  React.useEffect(() => {
+    if (currentUser?.email) {
+      setCookie("userEmail", currentUser.email);
+    }
+  }, [currentUser?.email]);
   return (
     <main className="min-h-screen bg-ink text-paper">
       <div className="flex items-center justify-between border-b border-white/10 px-5 py-5 sm:px-8">
