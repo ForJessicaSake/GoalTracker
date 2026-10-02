@@ -1,6 +1,5 @@
 import React from "react";
 import Footer from "../../Footer/Footer";
-import Button from "../../Micro/Button/Button";
 import { onSuccess, onClose, config } from "../../Paystack/Paystack";
 import { usePaystackPayment } from "react-paystack";
 import useFetch from "../../Hooks/fetch/useFetch";
@@ -11,55 +10,53 @@ const Home = () => {
   const todos = useFetch("todos");
   const completdTodo = useFetch("completdTodo");
   const initializePayment = usePaystackPayment(config);
+
+  const figures = [
+    { label: "Goals", value: goals.length },
+    { label: "Tasks", value: todos.length },
+    { label: "Pending", value: goals.length + todos.length },
+    {
+      label: "Completed",
+      value: completdTodo.length + completedGoals.length,
+    },
+  ];
+
   return (
     <main>
-      <div className="px-3 sm:px-5">
-        <div className="flex lg:flex-row flex-col justify-between lg:items-center">
-          <div className="leading-7">
-            <h1 className="lg:text-5xl text-4xl font-semibold">
-              Did you know?{" "}
+      <div className="px-5 sm:px-8">
+        <div className="flex flex-col justify-between gap-8 lg:flex-row lg:items-end">
+          <div>
+            <h1 className="text-3xl font-semibold tracking-tight sm:text-4xl">
+              The list is still here.
             </h1>
-            <p className="py-1">
-              If you can write it down and keep the momentum going, you can make
-              it happen.
+            <p className="mt-4 max-w-lg text-mist">
+              Write it down, keep the date, and come back. The count below is
+              the whole status.
             </p>
           </div>
-          <Button
-            className="bg-black my-5 lg:my-0 motion-safe:animate-pulse text-white lg:w-40 w-fit rounded-lg"
+          <button
+            type="button"
+            className="rounded-lg bg-accent px-4 py-2.5 text-sm font-semibold text-ink"
             onClick={() => initializePayment(onSuccess, onClose)}
           >
             Upgrade to Pro
-          </Button>
+          </button>
         </div>
-        <div className="grid grid-cols-2 h-[600px] sm:gap-8 gap-5 py-5">
-          <div className="bg-black text-white w-full flex flex-col justify-center items-center  rounded-lg p-5">
-            <div className="bg-card h-20 w-20  text-white flex items-center justify-center text-2xl font-semibold rounded-full">
-              {goals.length}
+        <div className="mt-10 grid grid-cols-2 gap-4 lg:grid-cols-4">
+          {figures.map((figure) => (
+            <div
+              key={figure.label}
+              className="rounded-2xl border border-white/10 bg-panel p-5"
+            >
+              <p className="text-4xl font-semibold tracking-tight text-accent">
+                {figure.value}
+              </p>
+              <p className="mt-2 text-sm text-mist">{figure.label}</p>
             </div>
-            <p className="py-2 sm:text-lg font-semibold">Goals</p>
-          </div>
-          <div className="bg-black text-white w-full flex flex-col justify-center items-center  rounded-lg p-5">
-            <div className="bg-white h-20 w-20 text-black flex items-center justify-center text-2xl font-semibold rounded-full">
-            {todos.length}
-            </div>
-            <p className="py-2 sm:text-lg font-semibold">Tasks</p>
-          </div>
-          <div className="bg-black text-white w-full flex flex-col justify-center items-center  rounded-lg p-5">
-            <div className="bg-white h-24 w-24 text-black flex items-center justify-center text-2xl font-semibold rounded-full">
-            {goals.length + todos.length}
-
-            </div>
-            <p className="py-2 sm:text-lg font-semibold">Pending</p>
-          </div>
-          <div className="bg-black text-white w-full flex flex-col justify-center items-center  rounded-lg p-5">
-            <div className="bg-background h-24 w-24 text-white flex items-center justify-center text-2xl font-semibold rounded-full">
-            {completdTodo.length + completedGoals.length}
-            </div>
-            <p className="py-2 sm:text-lg font-semibold">Completed</p>
-          </div>
+          ))}
         </div>
       </div>
-      <div className="border-t">
+      <div className="mt-16">
         <Footer />
       </div>
     </main>

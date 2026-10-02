@@ -14,7 +14,7 @@ function MyApp({ Component, pageProps }: AppProps) {
   }, []);
 
   return (
-    <div className="font-mono overflow-x-hidden">
+    <div className="dark min-h-screen overflow-x-hidden bg-ink font-sans text-paper antialiased">
       <Component {...pageProps} />
       <ToastContainer
         position="top-right"

@@ -1,61 +1,40 @@
-import Image from "next/image";
-import React from "react";
-import { BsCheck2All } from "react-icons/bs";
-
 const featureArray = [
   {
     name: "Goals",
-    deets: `All your goals organized in one place as long as you do not mind typing it by hand, we got you.`,
+    deets: "One list for what you are working toward, with a title, a priority, and a due date.",
   },
   {
-    name: "Journal",
-    deets: `Keep track of everything you would like to make notes of in one place by using Goal Tracker`,
+    name: "Tasks",
+    deets: "The smaller work sits beside the goal. Mark it done and it leaves the open list.",
   },
   {
-    name: "Reporting",
-    deets: `Easily report the progress of your goals and do whatever you want with it`,
+    name: "Progress",
+    deets: "A plain count of what is open, what is waiting, and what you have already closed.",
   },
   {
-    name: "Security",
-    deets: `You get to store all your goals and important information digitally in a cloud-based storage system.`,
+    name: "Your account",
+    deets: "Goals and notes stay with your account, so the list is still there when you come back.",
   },
 ];
 
 const Features = () => {
   return (
-    <main className="bg-background px-3 sm:px-5 py-4 mx-auto container" id="features"
-    data-aos="zoom-in"
-    >
-      <div className="text-gray-100 lg:py-16 py-6 flex flex-col items-center justify-end text-center">
-        <h1 className="sm:text-4xl text-2xl font-semibold max-w-md lg:max-w-full">
-          Everything you need to track your progress.
-        </h1>
-        <p className="text-gray-200 font-light py-2 max-w-md lg:max-w-full">
-          Well everything you need if you can stay consistent and keep the
-          momentum going.
-        </p>
+    <section className="mx-auto w-full max-w-6xl px-6 py-16 sm:px-8" id="features">
+      <h2 className="max-w-xl text-3xl font-semibold tracking-tight text-paper">
+        Everything you need to keep a goal moving.
+      </h2>
+      <div className="mt-8 grid gap-4 sm:grid-cols-2">
+        {featureArray.map((feature) => (
+          <article
+            key={feature.name}
+            className="rounded-2xl border border-white/10 bg-panel p-5"
+          >
+            <h3 className="text-lg font-semibold text-paper">{feature.name}</h3>
+            <p className="mt-2 text-sm leading-relaxed text-mist">{feature.deets}</p>
+          </article>
+        ))}
       </div>
-      <div className="flex lg:flex-row flex-col-reverse items-center lg:items-start justify-center text-gray-100">
-        <div data-aos="fade-right">
-          {featureArray.map((feature, index) => (
-            <div key={index} className="lg:max-w-md max-w-full py-3">
-              <div className="bg-card p-5 rounded-lg">
-                <h3 className="font-semibold text-xl flex items-center">
-                  {feature.name}{" "}
-                  <span className="text-green-400 pl-2 text-xl">
-                    <BsCheck2All />
-                  </span>
-                </h3>
-                <p className="text-sm py-2 font-light">{feature.deets}</p>
-              </div>
-            </div>
-          ))}
-        </div>
-        <div className="lg:ml-20" data-aos="fade-left">
-          <Image src="/assets/people.png" alt="logo" width={500} height={300} />
-        </div>
-      </div>
-    </main>
+    </section>
   );
 };
 

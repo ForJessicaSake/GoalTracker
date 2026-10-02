@@ -7,47 +7,52 @@ import PopUp from "../../Popup/Popup";
 
 const Card = ({ tasks, handleAdd, task, setTask, collectionName, value }: any) => {
   const [modal, setModal] = React.useState(false);
-  const handleModal = () => setModal(false);
   const [edit, setEdit] = React.useState(false);
 
-  let [id, setId] = React.useState("")
+  let [id, setId] = React.useState("");
   return (
-    <div className=" text-black py-3 gap-5 grid ">
+    <div className="grid gap-4 py-4 text-paper">
       {tasks &&
         tasks.map((goals: any) => (
-          <div key={goals.id} className="bg-white p-4 rounded-md">
+          <div key={goals.id} className="rounded-xl border border-white/10 bg-ink p-4">
             <div className="flex justify-between">
               <div
-                className={`text-white rounded-sm text-xs w-fit p-1 px-2 flex justify-center items-center ${
-                  goals.priority === "Low" ? "bg-yellow-400" : "bg-green-500"
+                className={`w-fit rounded-md px-2 py-1 text-xs font-medium ${
+                  goals.priority === "Low" ? "text-mist" : "text-accent"
                 }`}
               >
                 {goals.priority}
               </div>
-              <div
-                className="text-lg cursor-pointer"
+              <button
+                type="button"
+                className="text-mist hover:text-paper"
                 onClick={() => handleDelete(goals.id, collectionName)}
+                aria-label="Delete"
               >
                 <AiOutlineDelete />
-              </div>
+              </button>
             </div>
-            <h2 className="py-5 font-semibold">{goals.title}</h2>
-            <p className="text-sm">{goals.description}</p>
+            <h2 className="py-4 text-base font-semibold">{goals.title}</h2>
+            <p className="text-sm text-mist">{goals.description}</p>
 
-            <div className="flex justify-between pt-5">
-              <h2 className="text-base">
-                <span className="font-semibold">Due on: </span>{" "}
+            <div className="flex items-center justify-between pt-5 text-sm">
+              <h2>
+                <span className="text-sm text-mist">Due </span>
                 {goals.dueDate ? getDateValue(goals.dueDate) : ""}
               </h2>
-              <FiEdit
-                className=" text-lg cursor-pointer"
+              <button
+                type="button"
+                className="text-mist hover:text-paper"
+                aria-label="Edit"
                 onClick={() => {
-                  setModal(true)
-                  setTask(goals)
-                  setEdit(true)
-                  setId(goals.id)
+                  setModal(true);
+                  setTask(goals);
+                  setEdit(true);
+                  setId(goals.id);
                 }}
-              />
+              >
+                <FiEdit />
+              </button>
             </div>
           </div>
         ))}

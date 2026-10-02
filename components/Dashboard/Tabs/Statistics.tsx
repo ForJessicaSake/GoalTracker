@@ -1,4 +1,3 @@
-import Image from "next/image";
 import React from "react";
 import Footer from "../../Footer/Footer";
 import { Card, BarChart } from "@tremor/react";
@@ -33,26 +32,26 @@ const Statistics = () => {
     return Intl.NumberFormat("us").format(number).toString();
   };
   return (
-    <main className="sm:px-5 px-3 ">
-      <h1 className="text-xl sm:text-4xl font-semibold">
-      Welcome back,
-      </h1>
-      <p className="py-2">Check your goal status and more...</p>
-      <section className="justify-center items-center sm:px-5 px-3 flex-col text-center">
-        <Card className="overflow-x-scroll">
+    <main className="px-5 sm:px-8">
+      <h1 className="text-3xl font-semibold tracking-tight sm:text-4xl">What has moved.</h1>
+      <p className="mt-4 max-w-lg text-mist">
+        Open work against what you have already closed.
+      </p>
+      <section className="mt-12">
+        <Card className="bg-panel ring-white/10">
           <BarChart
             className="mt-6"
             data={chartdata}
             index="name"
             categories={["Number of registered Tasks"]}
-            colors={["gray"]}
+            colors={["emerald"]}
             valueFormatter={dataFormatter}
             yAxisWidth={48}
           />
         </Card>
       </section>
-  
-      <div className="border-t">
+
+      <div className="mt-16">
         <Footer />
       </div>
     </main>

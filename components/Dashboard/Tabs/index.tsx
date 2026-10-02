@@ -3,16 +3,13 @@ import { useRouter } from "next/router";
 import Goals from "./Goals";
 import Statistics from "./Statistics";
 import Todos from "./Todos";
-import Image from "next/image";
 import { BiTask } from "react-icons/bi";
 import { IoIosStats } from "react-icons/io";
 import { AiOutlineLogout, AiOutlineHome } from "react-icons/ai";
-import { CiMenuBurger } from "react-icons/ci";
-import { TfiClose } from "react-icons/tfi";
 import { GiStairsGoal } from "react-icons/gi";
 import { BsPersonCheckFill } from "react-icons/bs";
-import Link from "next/link";
 import Home from "./Home";
+import Brand from "../../Micro/Brand/Brand";
 import { Logout, UseAuth } from "../../Utils/Firebase/Firebase";
 import { toast } from "react-toastify";
 import Button from "../../Micro/Button/Button";
@@ -81,7 +78,7 @@ const Tabs = () => {
   };
 
   const CurrentTab = React.useMemo(
-    () => (router.query.tab as string) || "blog",
+    () => (router.query.tab as string) || "home",
     [router.query]
   );
 
@@ -90,7 +87,7 @@ const Tabs = () => {
     if (!tab) {
       return <Home />;
     }
-    const TabComponent = TabsComponent[CurrentTab || "blog"];
+    const TabComponent = TabsComponent[CurrentTab || "home"];
     return <TabComponent />;
   }, [CurrentTab]);
 
@@ -105,61 +102,64 @@ const Tabs = () => {
   const currentUser = UseAuth();
   setCookie("userEmail", currentUser?.email)
   return (
-    <main className="2xl:container 2xl:mx-auto">
-      <div className="items-center sm:p-5 p-3 flex justify-between border-b">
-        <Link href="/" className="flex items-center">
-          <Image
-            src="/assets/Navbar/logo.png"
-            alt="logo"
-            width={34}
-            height={34}
-          />
-          <span className="pl-1 text-lg font-bold">GoalTracker</span>
-        </Link>
+    <main className="min-h-screen bg-ink text-paper">
+      <div className="flex items-center justify-between border-b border-white/10 px-5 py-5 sm:px-8">
+        <Brand />
 
-        <p className="md:flex hidden items-center text-3xl xl:text-2xl text-black">
-          <BsPersonCheckFill /> <span className="text-sm ml-3">{currentUser?.email}</span>
+        <p className="hidden items-center text-sm text-mist md:flex">
+          <BsPersonCheckFill className="mr-2 text-accent" />
+          {currentUser?.email}
         </p>
 
-        <div
+        <button
+          type="button"
           onClick={() => setTabNavigation(!tabNavigation)}
-          className="text-2xl md:hidden "
+          className="text-sm font-medium md:hidden"
         >
-          {!tabNavigation ? <CiMenuBurger /> : <TfiClose />}
-        </div>
+          {tabNavigation ? "Close" : "Menu"}
+        </button>
       </div>
 
-      <div className="grid flex-grow w-full  gap-x-1 md:grid-cols-3 lg:grid-cols-5">
-        <section className="md:bg-white bg-black w-full ">
+      <div className="grid w-full md:grid-cols-[220px_1fr]">
+        <section className="border-white/10 md:border-r">
           <ul
-            className={` flex md:pt-10 md:h-fit md:static md:w-full absolute px-5 w-full left-0 top-[78px] py-5 text-lg cursor-pointer flex-col md:items-start md:space-x-0 ${
+            className={`cursor-pointer flex-col px-5 py-8 text-sm md:static md:flex md:h-fit md:w-full ${
               !tabNavigation
-                ? "hidden  md:block"
-                : " flex sm:items-center z-50 bg-white text-black  h-full"
+                ? "hidden md:flex"
+                : "fixed inset-0 z-50 flex h-full w-full bg-ink px-6 pt-8 text-paper"
             }`}
           >
+            {tabNavigation && (
+              <button
+                type="button"
+                className="mb-8 self-end text-sm font-medium md:hidden"
+                onClick={() => setTabNavigation(false)}
+              >
+                Close
+              </button>
+            )}
             {tabs.map((tab) => (
               <div
                 key={tab.query}
-                className="pb-7"
+                className="pb-2"
                 onClick={() => {
                   handleTabChange(tab.query);
                   setTabNavigation(false);
                 }}
               >
                 <li
-                  className={`text-lg ${
+                  className={`rounded-lg px-3 py-2 text-sm ${
                     tab.query === CurrentTab
-                      ? "bg-black rounded-lg text-white w-fit"
-                      : ""
-                  } p-2`}
+                      ? "bg-accent/15 text-paper"
+                      : "text-mist"
+                  }`}
                 >
                   {tab.title}
                 </li>
               </div>
             ))}
             <Button
-              className="flex items-center text-lg px-2"
+              className="mt-4 flex items-center px-3 text-sm text-mist"
               onClick={handleLogOut}
             >
               <AiOutlineLogout className="mr-2" /> Logout
@@ -167,8 +167,8 @@ const Tabs = () => {
           </ul>
         </section>
 
-        <section className="w-full h-full py-8 border-l md:col-span-2 lg:col-span-4">
-          <div className="font-nunito">
+        <section className="h-full w-full py-8 md:border-l md:border-white/10">
+          <div>
             <Component />
           </div>
         </section>

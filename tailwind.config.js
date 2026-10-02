@@ -1,5 +1,6 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
+  darkMode: "class",
   content: [
     "./app/**/*.{js,ts,jsx,tsx,mdx}",
     "./pages/**/*.{js,ts,jsx,tsx,mdx}",
@@ -15,11 +16,19 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        font: ["Roboto", "sans-serif"],
+        sans: ["Plus Jakarta Sans", "sans-serif"],
+        serif: ["Plus Jakarta Sans", "sans-serif"],
+        font: ["Plus Jakarta Sans", "sans-serif"],
       },
       colors: {
-        background: "#1c64f2",
-        card: "#3f75ed",
+        ink: "#0f1115",
+        paper: "#f4f5f7",
+        blush: "#3ecf8e",
+        accent: "#3ecf8e",
+        mist: "#9aa0ab",
+        panel: "#171a21",
+        background: "#3ecf8e",
+        card: "#171a21",
 
         tremor: {
           brand: {
@@ -49,11 +58,8 @@ module.exports = {
             strong: "#111827", // gray-900
             inverted: "#ffffff", // white
           },
-        }
-      },
-
-       // dark mode
-       "dark-tremor": {
+        },
+        "dark-tremor": {
         brand: {
           faint: "#0B1229", // custom
           muted: "#172554", // blue-950
@@ -81,6 +87,7 @@ module.exports = {
           strong: "#f9fafb", // gray-50
           inverted: "#000000", // black
         },
+      },
       },
 
       boxShadow: {

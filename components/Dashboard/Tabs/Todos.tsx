@@ -2,7 +2,7 @@ import React from "react";
 import Footer from "../../Footer/Footer";
 import Calendar from "react-calendar";
 import "react-calendar/dist/Calendar.css";
-import { BsDot, BsPlusLg } from "react-icons/bs";
+import { BsPlusLg } from "react-icons/bs";
 import {
   FieldValue,
   addDoc,
@@ -12,13 +12,10 @@ import {
 import { UseAuth, db } from "../../Utils/Firebase/Firebase";
 import PopUp from "../../Popup/Popup";
 import { toast } from "react-toastify";
-import { FaArrowRight } from "react-icons/fa";
 import Pending from "../../Micro/Card/Pending";
 import Card from "../../Micro/Card/Card";
 import useFetch from "../../Hooks/fetch/useFetch";
 import Completed from "../../Micro/Card/Completed";
-import Image from "next/image";
-import Button from "../../Micro/Button/Button";
 
 type goal = {
   title?: string;
@@ -74,48 +71,41 @@ const Todos = () => {
   };
   return (
     <main>
-      <div className="sm:px-5 px-3">
-        <div className="flex lg:flex-row flex-col items-center md:items-start text-center md:text-start justify-between max-w-full">
-          <div className="leading-7">
-            <h1 className="sm:text-4xl text-2xl font-semibold">
-              Welcome back,{" "}
+      <div className="px-5 sm:px-8">
+        <div className="flex flex-col items-start justify-between gap-8 lg:flex-row">
+          <div>
+            <h1 className="text-3xl font-semibold tracking-tight sm:text-4xl">
+              Tasks
             </h1>
-            <p className="py-2 sm:text-base text-sm">
-              What are your todos for today?{" "}
+            <p className="mt-4 max-w-md text-mist">
+              Choose a due date, then add the task to the open list.
             </p>
-            <Image src="/assets/signup.jpg" alt="id" width={400} height={300} />
           </div>
-          <div className="w-64 sm:w-fit">
-            <div className="flex items-center justify-between py-3">
-              <h3 className="flex items-center justify-center">
-                <FaArrowRight className="text-lg mr-2 animate-verticalBounce" />
-                <span className="text-background mr-2 font-semibold">Due</span>
-                date?
-              </h3>
-            </div>
-            <Calendar onChange={handleDateChange} value={value} className="" />
+          <div>
+            <p className="mb-3 text-sm font-medium text-mist">Due date</p>
+            <Calendar
+              onChange={handleDateChange}
+              value={value}
+              className="gt-cal"
+            />
           </div>
         </div>
-        <div className="grid gap-5 lg:grid-cols-3 py-7">
-          <div className="bg-slate-50 w-full rounded-lg p-2">
-            <div className="flex items-center justify-between">
-              <div className="flex items-center">
-                <div className="flex items-center text-lg">
-                  <BsDot className="mr-1 text-5xl text-background" />
-                  Todos
-                </div>
-                <div className="bg-gray-100 h-7 w-7 ml-2  text-background flex items-center justify-center text-lg font-semibold rounded-full">
-                  0
-                </div>
+        <div className="grid gap-5 py-10 lg:grid-cols-3">
+          <div className="w-full rounded-2xl border border-white/10 bg-panel p-4">
+            <div className="flex items-center justify-between border-b border-white/10 pb-3">
+              <div className="flex items-center gap-3">
+                <span className="text-sm font-medium">Todos</span>
+                <span className="text-sm text-accent">{data.length}</span>
               </div>
-              <div className="cursor-pointer animate-bounce bg-gray-100 h-7 w-7 ml-2  text-background flex items-center justify-center text-lg font-semibold rounded-full">
-                <BsPlusLg
-                  className="text-xl font-semibold"
-                  onClick={() => setModal(true)}
-                />
-              </div>
+              <button
+                type="button"
+                className="text-paper"
+                aria-label="Add todo"
+                onClick={() => setModal(true)}
+              >
+                <BsPlusLg />
+              </button>
             </div>
-            <div className="h-1 rounded-full bg-card w-full"></div>
             <Card
               tasks={data}
               modal={modal}
@@ -129,17 +119,11 @@ const Todos = () => {
             />
           </div>
 
-          <div className="bg-slate-100 text-black w-full rounded-lg p-2">
-            <div className="flex items-center">
-              <div className="flex items-center text-lg">
-                <BsDot className="mr-1 text-5xl text-black" />
-                In Progress
-              </div>
-              <div className="bg-white h-7 w-7 ml-2  text-black flex items-center justify-center text-lg font-semibold rounded-full">
-                0
-              </div>
+          <div className="w-full rounded-2xl border border-white/10 bg-panel p-4">
+            <div className="flex items-center gap-3 border-b border-white/10 pb-3">
+              <span className="text-sm font-medium">In progress</span>
+              <span className="text-sm text-accent">{data.length}</span>
             </div>
-            <div className="h-1 rounded-full bg-black w-full"></div>
             <Pending
               tasks={data}
               collectionName="todos"
@@ -147,21 +131,15 @@ const Todos = () => {
             />
           </div>
 
-          <div className="bg-slate-50 text-black w-full rounded-lg p-2">
-            <div className="flex items-center">
-              <div className="flex items-center text-lg">
-                <BsDot className="mr-1 text-5xl text-background" />
-                Done
-              </div>
-              <div className="bg-gray-100 h-7 w-7 ml-2  text-background flex items-center justify-center text-lg font-semibold rounded-full">
-                0
-              </div>
+          <div className="w-full rounded-2xl border border-white/10 bg-panel p-4">
+            <div className="flex items-center gap-3 border-b border-white/10 pb-3">
+              <span className="text-sm font-medium">Done</span>
+              <span className="text-sm text-accent">{completed.length}</span>
             </div>
-            <div className="h-1 rounded-full bg-card w-full"></div>
             <Completed tasks={completed.slice(0, 5)} />
           </div>
         </div>
-        <div className="border-t">
+        <div className="mt-8">
           <Footer />
         </div>
       </div>

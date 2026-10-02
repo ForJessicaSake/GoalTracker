@@ -49,63 +49,62 @@ const PopUp = ({
     }
   };
   return (
-    <Modal
-      open={modal}
-      onClose={() => setModal(false)}
-      className="bg-btnHoverBlack "
-    >
-      <ModalContent className="text-black bg-slate-50 overflow-y-scroll mx-3 p-5 md:p-0 rounded-2xl w-[430px] h-[65vh] 2xl:h-fit max-w-5xltext-xs md:text-sm flex flex-col justify-between">
+    <Modal open={modal} onClose={() => setModal(false)}>
+      <ModalContent className="mx-4 w-[min(100%,440px)] rounded-2xl border border-white/10 bg-panel p-6 text-paper md:p-8">
         <section>
-          <form className="flex flex-col lg:p-5 ">
-            <div className="flex flex-col max-w-sm">
-              <label className="py-1">Goal</label>
-              <input
-                type="text"
-                required
-                placeholder="Enter a title here"
-                value={task?.title}
-                onChange={(e) => {
-                  setTask({ ...task, title: e.target.value });
-                }}
-                className="max-w-sm p-4 rounded-lg"
-              />
-            </div>
-            <div className="flex flex-col max-w-sm py-5">
-              <label className="py-1">Description</label>
-              <input
-                type="text"
-                required
-                placeholder="add a description here"
-                value={task?.description}
-                onChange={(e) => {
-                  setTask({ ...task, description: e.target.value });
-                }}
-                className="max-w-sm p-4 rounded-lg"
-              />
-            </div>
-            <div className="flex flex-col max-w-sm">
-              <label className="py-1">Priority</label>
-              <select
-                value={task?.priority}
-                onChange={(e) => {
-                  setTask({ ...task, priority: e.target.value });
-                }}
-                className="max-w-xl p-4 rounded-lg"
-              >
-                <option value="Low">Low</option>
-                <option value="High">High</option>
-              </select>
-            </div>
+          <h2 className="text-2xl font-semibold tracking-tight">
+            {edit ? "Edit entry" : "Add to the list"}
+          </h2>
+          <form className="mt-8 flex flex-col">
+            <label className="text-sm font-medium text-mist">
+              Title
+            </label>
+            <input
+              type="text"
+              required
+              placeholder="Title"
+              value={task?.title}
+              onChange={(e) => {
+                setTask({ ...task, title: e.target.value });
+              }}
+              className="field mt-2"
+            />
+            <label className="mt-5 text-sm font-medium text-mist">
+              Description
+            </label>
+            <input
+              type="text"
+              required
+              placeholder="A short note"
+              value={task?.description}
+              onChange={(e) => {
+                setTask({ ...task, description: e.target.value });
+              }}
+              className="field mt-2"
+            />
+            <label className="mt-5 text-sm font-medium text-mist">
+              Priority
+            </label>
+            <select
+              value={task?.priority}
+              onChange={(e) => {
+                setTask({ ...task, priority: e.target.value });
+              }}
+              className="field mt-2"
+            >
+              <option value="Low">Low</option>
+              <option value="High">High</option>
+            </select>
             {!edit ? (
               <Button
-                className="bg-card rounded-full w-40 p-2 my-8 text-white"
+                className="mt-8 rounded-lg bg-accent text-sm font-semibold text-ink"
                 onClick={handleAdd}
               >
                 Submit
               </Button>
             ) : (
               <button
-                className="bg-card rounded-full w-40 p-2 my-8 text-white"
+                className="mt-8 rounded-lg bg-accent p-3 text-sm font-semibold text-ink"
                 onClick={(e: React.FormEvent) => {
                   handleEdit(e, id, collectionName);
                 }}

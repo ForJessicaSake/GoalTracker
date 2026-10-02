@@ -1,13 +1,103 @@
-html,
-body {
-  padding: 0;
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
-}
-@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
-
+@import url("https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap");
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+html,
+body {
+  padding: 0;
+  margin: 0;
+  background: #0f1115;
+  color: #f4f5f7;
+}
+
+::selection {
+  background: #3ecf8e;
+  color: #0f1115;
+}
+
+.field {
+  width: 100%;
+  background: #0f1115;
+  border: 1px solid rgba(244, 245, 247, 0.14);
+  border-radius: 0.6rem;
+  color: #f4f5f7;
+  padding: 0.95rem 1rem;
+  font-size: 0.95rem;
+}
+
+.field::placeholder {
+  color: rgba(163, 158, 151, 0.85);
+}
+
+.field:focus {
+  outline: none;
+  border-color: #3ecf8e;
+}
+
+select.field {
+  color-scheme: dark;
+}
+
+.gt-cal.react-calendar {
+  width: 100%;
+  max-width: 320px;
+  background: #171a21;
+  border: 1px solid rgba(244, 245, 247, 0.1);
+  border-radius: 0.75rem;
+  color: #f4f5f7;
+  font-family: "Plus Jakarta Sans", sans-serif;
+  padding: 0.35rem;
+}
+
+.gt-cal .react-calendar__navigation button {
+  color: #f4f5f7;
+  background: transparent;
+  font-size: 0.95rem;
+  border-radius: 0.5rem;
+}
+
+.gt-cal .react-calendar__navigation button:enabled:hover,
+.gt-cal .react-calendar__navigation button:enabled:focus {
+  background: rgba(244, 245, 247, 0.06);
+}
+
+.gt-cal .react-calendar__month-view__weekdays {
+  color: #a39e97;
+  text-transform: uppercase;
+  font-size: 0.62rem;
+  letter-spacing: 0.16em;
+}
+
+.gt-cal .react-calendar__month-view__weekdays abbr {
+  text-decoration: none;
+}
+
+.gt-cal .react-calendar__tile {
+  color: #f4f5f7;
+  background: transparent;
+  border-radius: 0.4rem;
+  padding: 0.7rem 0.4rem;
+}
+
+.gt-cal .react-calendar__tile:enabled:hover,
+.gt-cal .react-calendar__tile:enabled:focus {
+  background: rgba(244, 245, 247, 0.08);
+}
+
+.gt-cal .react-calendar__tile--now {
+  background: transparent;
+  color: #3ecf8e;
+}
+
+.gt-cal .react-calendar__tile--active,
+.gt-cal .react-calendar__tile--active:enabled:hover,
+.gt-cal .react-calendar__tile--active:enabled:focus {
+  background: #3ecf8e;
+  color: #0f1115;
+}
+
+.gt-cal .react-calendar__month-view__days__day--neighboringMonth {
+  color: rgba(163, 158, 151, 0.45);
+}

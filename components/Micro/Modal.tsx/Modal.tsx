@@ -45,7 +45,7 @@ const Modal = React.forwardRef(
         <div
           ref={ref}
           onClick={onClose && animateClose}
-          className={`modal-content !mt-0 !mx-0 !mb-0 backdrop-blur-sm bg-[#0000000F]  m-0 h-screen w-screen fixed top-0 left-0 ${
+          className={`modal-content !mx-0 !mb-0 !mt-0 fixed left-0 top-0 m-0 h-screen w-screen bg-black/70 backdrop-blur-sm ${
             open
               ? "flex"
               : "transform scale-0 transition-transform duration-300 ease-out animation-fade-in"
